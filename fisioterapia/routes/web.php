@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('login');
 });
+
+Route::get('/historiaClinica',function(){
+  return view('layouts.navBar');
+});
