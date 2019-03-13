@@ -16,5 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/historiaClinica',function(){
-  return view('layouts.navBar');
+  return view('historiaClinica');
+});
+
+Route::get('/historiaClinica/clinica',function(){
+  return view('clinica');
 });
