@@ -6,6 +6,7 @@
 @section('principal')
 
 <body>
+  <h1 class="row justify-content-md-center"> Registro de servidor social</h1>
 <div  class="row justify-content-md-center">
   <div class="container">
           Nombre <input class="input" type="text" placeholder="&#128100; " required autofocus>
@@ -17,7 +18,7 @@
           Telefono celular <input class="input" type="text" placeholder="&#128241; " required>
           Email <input class="input" type="email" placeholder="&#64; " required>
           Dirección <input class="input" type="text" placeholder="&#127968; Calle" required>
-                    <input class="input" type="text" placeholder="&#127968; Numero" required>
+                    <input class="input" type="text" placeholder="&#35; Numero" required>
                     <input class="input" type="text" placeholder="&#127968; Colonia" required>
                     <input class="input" type="text" placeholder="&#127968; Codigo postal" required>
           Fecha de ingreso <input class="input" type="date" placeholder="&#128197; " required>

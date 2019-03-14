@@ -6,6 +6,7 @@
 @section('principal')
 
 <body>
+  <h1 class="row justify-content-md-center"> Registro de médicos</h1>
 <div  class="row justify-content-md-center">
   <div class="container">
           Nombre <input class="input" type="text" placeholder="&#128100; " required autofocus>
