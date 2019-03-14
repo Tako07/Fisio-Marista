@@ -21,3 +21,19 @@ Route::get('/historiaClinica',function(){
 Route::get('/historiaClinica/clinica',function(){
   return view('clinica');
 });
+
+Route::get('/registroServidorSocial',function(){
+  return view('registroServidorSocial');
+});
+
+Route::get('/registroMedico',function(){
+  return view('registroMedico');
+});
+
+Route::get('/registroPasante',function(){
+  return view('registroPasante');
+});
+
+Route::get('/datosPersonales',function(){
+  return view('DatosPersonales');
+});
