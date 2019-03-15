@@ -1,6 +1,6 @@
 @extends('layouts.navBar')
 @section('more_style')
-<link href="{{{ asset('css/style_historia.css') }}}" rel="stylesheet">
+<link href="{{{ asset('css/style_registro.css') }}}" rel="stylesheet">
 @endsection
 @section('title','Datos Personales')
 @section('principal')
