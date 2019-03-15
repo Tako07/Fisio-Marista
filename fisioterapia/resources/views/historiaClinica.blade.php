@@ -21,7 +21,7 @@
 
 
 
-<table class="table table-hover">
+<table id="table" class="table table-hover">
   <thead>
     <tr class="yellowMarista">
       <th scope="col">Nombre(s)</th>
