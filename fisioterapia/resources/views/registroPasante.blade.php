@@ -4,9 +4,6 @@
 @endsection
 @section('title','Registro de médicos')
 @section('principal')
-
-<body>
-
   <h1 class="row justify-content-md-center yellowMarista">  Registro de Pasante</h1>
 <div  class="row justify-content-md-center">
   <div class="container">
@@ -35,4 +32,4 @@
       </div>
     </div>
 </div>
-</body>
+@endsection

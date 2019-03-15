@@ -7,7 +7,7 @@
   <div id="histClinica" class="justify-content-center">
     <div class="row col-md-auto">
       <div>
-        <h3>Antecedentes Heredo Familiares</h3>
+        <h3 class="titulo">Antecedentes Heredo Familiares</h3>
       </div>
     </div>
     <div class="row yellowMarista">

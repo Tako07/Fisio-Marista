@@ -7,7 +7,7 @@
   <div id="personalesNoPatologicos" class="justify-content-center">
     <div class="row col-md-auto">
       <div>
-        <h3>Antecedentes Personales no patológicos</h3>
+        <h3 class="titulo">Antecedentes Personales no patológicos</h3>
       </div>
     </div>
     <div class="row yellowMarista">
@@ -201,7 +201,7 @@
   <div id="personalesPatologicos" class="justify-content-center">
     <div class="row col-md-auto">
       <div>
-        <h3>Antecedentes Personales patológicos</h3>
+        <h3 class="titulo">Antecedentes Personales patológicos</h3>
       </div>
     </div>
     <div class="row yellowMarista">
@@ -413,7 +413,7 @@
   <div id="personalesGineco" class="justify-content-center">
     <div class="row col-md-auto">
       <div>
-        <h3>Antecedentes Gineco-obstéricos</h3>
+        <h3 class="titulo">Antecedentes Gineco-obstéricos</h3>
       </div>
     </div>
     <div class="row yellowMarista">

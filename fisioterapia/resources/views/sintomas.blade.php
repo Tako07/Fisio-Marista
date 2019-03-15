@@ -8,7 +8,7 @@
 <div id="histClinica" class="justify-content-center">
   <div class="row col-md-auto">
     <div>
-      <h3>Sintomas generales</h3>
+      <h3 class="titulo">Sintomas generales</h3>
     </div>
   </div>
   <div class="row yellowMarista">
@@ -104,7 +104,7 @@
 <div id="aparatos" class="justify-content-center">
   <div class="row col-md-auto">
     <div>
-      <h3>Aparatos y sistemas</h3>
+      <h3 class="titulo">Aparatos y sistemas</h3>
     </div>
   </div>
   <div class="row yellowMarista">
@@ -320,7 +320,7 @@
   </div>
 </div>
 <div class="row">
-  <h3>Diagnósticos anteriores</h3>
+  <h3 class="titulo">Diagnósticos anteriores</h3>
 </div>
 <div class="row">
   <form class="col s12">
@@ -334,7 +334,7 @@
   </form>
 </div>
 <div class="row">
-  <h3>Estudios de gabinete/estudios de laboratorio</h3>
+  <h3 class="titulo">Estudios de gabinete/estudios de laboratorio</h3>
 </div>
 <div class="row">
   <form class="col s12">
@@ -348,7 +348,7 @@
   </form>
 </div>
 <div class="row">
-  <h3>Tratamientos anteriores (Tiempo, tipo)</h3>
+  <h3 class="titulo">Tratamientos anteriores (Tiempo, tipo)</h3>
 </div>
 <div class="row">
   <form class="col s12">
@@ -362,7 +362,7 @@
   </form>
 </div>
 <div class="row">
-  <h3>Inquietud subyacente</h3>
+  <h3 class="titulo">Inquietud subyacente</h3>
 </div>
 <div class="row">
   <form class="col s12">
