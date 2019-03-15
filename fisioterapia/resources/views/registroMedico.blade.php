@@ -1,11 +1,12 @@
 @extends('layouts.navBar')
 @section('more_style')
 <link href="{{{ asset('css/style_registro.css') }}}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 @endsection
 @section('title','Registro de médicos')
 @section('principal')
 
-  <h1 class="row justify-content-md-center yellowMarista">  Registro de médicos</h1>
+  <h1 class="row justify-content-md-center yellowMarista font-size:10vw">  Registro de médicos</h1>
 <div  class="row justify-content-md-center">
   <div class="container">
           Nombre <input class="input" type="text" placeholder="&#128100; " required autofocus>
