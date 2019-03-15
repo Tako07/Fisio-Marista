@@ -12,38 +12,34 @@
 <div class="bg">
   <div class="color-bg">
 
-  <div class="container-fluid" style="background-color:rgba(0,55,100, 0.8);padding-top:1%;padding-bottom: 1%;">
+  <div class="container-fluid" style="background-color:rgba(71,72,104, 1);padding-top:1%;padding-bottom: 1%;">
     <div class="row">
-      <div class="col-3">
-        <h1 style="font-size: 1.5vw;color: #ffffff;font-family:Monaco,Georgia,Times,serif;padding-top:7%;">NombreDeUsuario</h1>
-        <h2 style="font-size: 1.5vw;color: #ffffff;font-family:Monaco,Georgia,Times,serif;">Doctor Fernando Valenzuela</h2>
-      </div>
-      <div class="col-9">
-        <img src="{{{ asset('img/logo/logo_horizontal_blanco.png') }}}" style="width:40%;" id="icon" alt="Icon" />
+      <div class="col-12">
+        <img src="{{{ asset('img/logo/logo_horizontal_blanco.png') }}}" style="width:20%;" id="icon" alt="Icon" />
       </div>
     </div>
   </div>
 
-  <div class="container" style="padding-left: 3%;padding-right: 3%; padding-top: 3%;">
+  <div class="container-fluid" style="padding-left: 2%;padding-right: 2%; padding-top: 1%;">
     <div class="row">
-      <div class="col-sm">
+      <div class="col-md">
         <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/datosPersonales.jpg') }}}" alt="Datos Personales" style="width:100%;">
       </div>
-      <div class="col-sm">
+      <div class="col-md">
         <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/pacientes.jpg') }}}" alt="Pacientes" style="width:100%;">
       </div>
-      <div class="col-sm">
+      <div class="col-md">
         <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/historiaClinica.jpg') }}}" alt="Historia Clinica" style="width:100%;">
       </div>
     </div>
     <div class="row" style="padding-top: 3%;">
-      <div class="col-sm">
+      <div class="col-md">
         <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/consultas.jpg') }}}" alt="Consultas" style="width:100%;">
       </div>
-      <div class="col-sm">
+      <div class="col-md">
         <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/citas.jpg') }}}" alt="Citas" style="width:100%;">
       </div>
-      <div class="col-sm">
+      <div class="col-md">
         <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/cerrarSesion.jpg') }}}" alt="Cierra Sesion" style="width:100%;">
       </div>
     </div>
