@@ -13,8 +13,10 @@
 
   <div class="container-fluid" style="padding-left: 2%;padding-right: 2%; padding-top: 1%;">
     <div class="row">
-      <div class="col-md">
-        <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/datosPersonales.jpg') }}}" alt="Datos Personales" style="width:100%;">
+      <div class="col-md contImg">
+        <div class="transparencia">
+          <div class="textoImg">Datos personales</div>
+        </div>
       </div>
       <div class="col-md">
         <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/pacientes.jpg') }}}" alt="Pacientes" style="width:100%;">
