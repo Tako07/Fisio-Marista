@@ -11,14 +11,6 @@
 <div class="bg">
   <div class="color-bg">
 
-  <div class="container-fluid" style="background-color:rgba(71,72,104, 1);padding-top:1%;padding-bottom: 1%;">
-    <div class="row">
-      <div class="col-12">
-        <img src="{{{ asset('img/logo/logo_horizontal_blanco.png') }}}" style="width:20%;" id="icon" alt="Icon" />
-      </div>
-    </div>
-  </div>
-
   <div class="container-fluid" style="padding-left: 2%;padding-right: 2%; padding-top: 1%;">
     <div class="row">
       <div class="col-md">
