@@ -10,9 +10,9 @@
 
     <div class="row">
     	<div class="col-md-3 col-sm-4">
-    		<div class="panel panel-default">
+    		<div class="panel panel-default yellowMarista">
     			<div class="panel-heading">
-    				<h3 class="row ">Información general</h3>
+    				<h3 class="row titulo">Información general</h3>
     			</div>
     			<div class="panel-body ustify-content-md-center">
     				<br>
@@ -48,9 +48,9 @@
     	</div>
 
     	<div class="col-md-9 col-sm-8">
-    		<div class="panel panel-default">
+    		<div class="panel panel-default grayMarista">
     			<div class="panel-heading ">
-    				<h3 class="row justify-content-md-center ">Información de contacto</h3>
+    				<h3 class="row justify-content-md-center titulo">Información de contacto</h3>
     			</div>
     			<div class="panel-body">
     				<ul class="simple">
