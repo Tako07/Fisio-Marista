@@ -42,3 +42,7 @@ Route::get('/datosPersonales',function(){
   return view('DatosPersonales');
 });
 
+Route::get('/Consulta',function(){
+  return view('consulta');
+});
+
