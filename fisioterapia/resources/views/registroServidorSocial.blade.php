@@ -1,12 +1,13 @@
 @extends('layouts.navBar')
 @section('more_style')
-<link href="{{{ asset('css/style_historia.css') }}}" rel="stylesheet">
+<link href="{{{ asset('css/style_registro.css') }}}" rel="stylesheet">
 @endsection
-@section('title','Registro Servidor Social')
+@section('title','Registro de servidor social')
 @section('principal')
 
 <body>
-  <h1 class="row justify-content-md-center"> Registro de servidor social</h1>
+
+  <h1 class="row justify-content-md-center yellowMarista">  Registro de servidor social</h1>
 <div  class="row justify-content-md-center">
   <div class="container">
           Nombre <input class="input" type="text" placeholder="&#128100; " required autofocus>

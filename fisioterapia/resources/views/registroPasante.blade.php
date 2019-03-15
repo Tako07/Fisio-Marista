@@ -1,12 +1,13 @@
 @extends('layouts.navBar')
 @section('more_style')
-<link href="{{{ asset('css/style_historia.css') }}}" rel="stylesheet">
+<link href="{{{ asset('css/style_registro.css') }}}" rel="stylesheet">
 @endsection
-@section('title','Registro Pasante')
+@section('title','Registro de médicos')
 @section('principal')
 
 <body>
-  <h1 class="row justify-content-md-center"> Registro de pasante</h1>
+
+  <h1 class="row justify-content-md-center yellowMarista">  Registro de Pasante</h1>
 <div  class="row justify-content-md-center">
   <div class="container">
           Nombre <input class="input" type="text" placeholder="&#128100; " required autofocus>
