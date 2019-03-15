@@ -13,25 +13,43 @@
 
   <div class="container-fluid" style="padding-left: 2%;padding-right: 2%; padding-top: 1%;">
     <div class="row">
-      <div class="col-md">
-        <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/datosPersonales.jpg') }}}" alt="Datos Personales" style="width:100%;">
+      <div id="datosPersonales" class="col-md contImg">
+        <div class="transparencia">
+          <div class="textoImg">Datos personales</div>
+        </div>
       </div>
-      <div class="col-md">
+      <!--<div class="col-md">
         <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/pacientes.jpg') }}}" alt="Pacientes" style="width:100%;">
+      </div>-->
+      <div id="pacientes" class="col-md contImg">
+        <div class="transparencia">
+          <div class="textoImg">Pacientes</div>
+        </div>
       </div>
-      <div class="col-md">
-        <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/historiaClinica.jpg') }}}" alt="Historia Clinica" style="width:100%;">
+      <div id="historia_clinica" class="col-md contImg">
+        <div class="transparencia">
+          <div class="textoImg">Historia Clinica</div>
+        </div>
       </div>
     </div>
     <div class="row" style="padding-top: 3%;">
-      <div class="col-md">
-        <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/consultas.jpg') }}}" alt="Consultas" style="width:100%;">
+      <div id="consultas" class="col-md contImg">
+        <div class="transparencia">
+          <div class="textoImg">Consultas</div>
+        </div>
       </div>
-      <div class="col-md">
-        <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/citas.jpg') }}}" alt="Citas" style="width:100%;">
+      <!--<div class="col-md">
+        <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/pacientes.jpg') }}}" alt="Pacientes" style="width:100%;">
+      </div>-->
+      <div id="citas" class="col-md contImg">
+        <div class="transparencia">
+          <div class="textoImg">Citas</div>
+        </div>
       </div>
-      <div class="col-md">
-        <img class="rounded-sm img-fluid img-thumbnail" src="{{{ asset('img/inicio/cerrarSesion.jpg') }}}" alt="Cierra Sesion" style="width:100%;">
+      <div id="cerrar_sesion" class="col-md contImg">
+        <div class="transparencia">
+          <div class="textoImg">Cerrar Sesión</div>
+        </div>
       </div>
     </div>
   </div>

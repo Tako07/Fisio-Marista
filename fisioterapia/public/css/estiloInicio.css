@@ -13,3 +13,56 @@
   background-color: rgba(157,157,156, 0.6);
   overflow: auto;
 }
+.contImg{
+  padding: 0px;
+}
+#datosPersonales{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/inicio/datos_personales.jpg');
+  height: 250px;
+}
+#pacientes{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/inicio/fisio.jpg');
+}
+#historia_clinica{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/inicio/historia_clinica.jpg');
+}
+#consultas{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/inicio/consultas.jpg');
+  height: 250px;
+}
+#citas{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/inicio/citas.jpg');
+}
+#cerrar_sesion{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/inicio/cerrar_sesion.jpg');
+}
+
+.transparencia{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(157, 157, 156, 0.3);
+}
+.textoImg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
