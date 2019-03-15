@@ -21,3 +21,8 @@ Route::get('/historiaClinica',function(){
 Route::get('/historiaClinica/clinica',function(){
   return view('clinica');
 });
+
+Route::get('/inicio', function () {
+    return view('inicio');
+});
+

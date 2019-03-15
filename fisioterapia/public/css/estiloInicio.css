@@ -1,0 +1,15 @@
+.bg{
+  width:100vw;
+  height:100vh;
+  background-image: url('../img/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-color: #003865;  */
+}
+.color-bg{
+  width:100vw;
+  height:100vh;
+  background-color: rgba(157,157,156, 0.6);
+  overflow: auto;
+}
