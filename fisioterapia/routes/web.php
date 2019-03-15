@@ -54,3 +54,11 @@ Route::get('/inicio', function () {
     return view('inicio');
 });
 
+Route::get('/calendario', function () {
+  return view('calendario');
+});
+
+Route::get('/cita', function () {
+  return view('cita');
+});
+
