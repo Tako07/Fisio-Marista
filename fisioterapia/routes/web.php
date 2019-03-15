@@ -53,6 +53,9 @@ Route::get('/datosPersonales',function(){
 Route::get('/inicio', function () {
     return view('inicio');
 });
+Route::get('/Consulta',function(){
+  return view('consulta');
+});
 
 Route::get('/calendario', function () {
   return view('calendario');
@@ -61,4 +64,5 @@ Route::get('/calendario', function () {
 Route::get('/cita', function () {
   return view('cita');
 });
+
 
