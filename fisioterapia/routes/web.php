@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('login');
 });
@@ -33,4 +32,20 @@ Route::get('/historiaClinica/nuevo_pad',function(){
 
 Route::get('/historiaClinica/sintomas',function(){
   return view('sintomas');
+});
+
+Route::get('/registroServidorSocial',function(){
+  return view('registroServidorSocial');
+});
+
+Route::get('/registroMedico',function(){
+  return view('registroMedico');
+});
+
+Route::get('/registroPasante',function(){
+  return view('registroPasante');
+});
+
+Route::get('/datosPersonales',function(){
+  return view('DatosPersonales');
 });

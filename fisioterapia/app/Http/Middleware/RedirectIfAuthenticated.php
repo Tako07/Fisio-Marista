@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace fisioterapia\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

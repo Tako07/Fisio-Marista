@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace fisioterapia\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 
