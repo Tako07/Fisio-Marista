@@ -2,10 +2,10 @@
 @section('title','INICIO')
 @section('stylesheet')
   <link rel="stylesheet" href="{{{ asset('css/bootstrap4.3.1/css/bootstrap.min.css') }}}">
-  <link rel="stylesheet" href="{{{ asset('css/estiloInicio.css') }}}">
   <script src=" {{{ asset('css/bootstrap4.3.1/js/jquery-3.3.1.slim.min.js') }}}"></script>
   <script src=" {{{ asset('css/bootstrap4.3.1/js/popper.min.js') }}}"></script>
   <script src=" {{{ asset('css/bootstrap4.3.1/js/bootstrap.min.js') }}}"></script>
+  <link rel="stylesheet" href="{{{ asset('css/estiloInicio.css') }}}">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 @endsection
 @section('content')
