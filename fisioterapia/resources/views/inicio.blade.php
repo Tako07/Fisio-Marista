@@ -1,24 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
 @section('title','INICIO')
 @section('stylesheet')
   <link rel="stylesheet" href="{{{ asset('css/bootstrap4.3.1/css/bootstrap.min.css') }}}">
+@section('more_style')
+  <link rel="stylesheet" href="{{{ asset('css/estiloInicio.css') }}}">
   <script src=" {{{ asset('css/bootstrap4.3.1/js/jquery-3.3.1.slim.min.js') }}}"></script>
   <script src=" {{{ asset('css/bootstrap4.3.1/js/popper.min.js') }}}"></script>
   <script src=" {{{ asset('css/bootstrap4.3.1/js/bootstrap.min.js') }}}"></script>
   <link rel="stylesheet" href="{{{ asset('css/estiloInicio.css') }}}">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 @endsection
-@section('content')
+@section('principal')
 <div class="bg">
   <div class="color-bg">
-
-  <div class="container-fluid" style="background-color:rgba(71,72,104, 1);padding-top:1%;padding-bottom: 1%;">
-    <div class="row">
-      <div class="col-12">
-        <img src="{{{ asset('img/logo/logo_horizontal_blanco.png') }}}" style="width:20%;" id="icon" alt="Icon" />
-      </div>
-    </div>
-  </div>
 
   <div class="container-fluid" style="padding-left: 2%;padding-right: 2%; padding-top: 1%;">
     <div class="row">

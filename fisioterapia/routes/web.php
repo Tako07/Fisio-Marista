@@ -18,12 +18,20 @@ Route::get('/historiaClinica',function(){
   return view('historiaClinica');
 });
 
-Route::get('/historiaClinica/clinica',function(){
-  return view('clinica');
+Route::get('/historiaClinica/ant_fam',function(){
+  return view('antecedentes_familiares');
 });
 
-Route::get('/inicio', function () {
-    return view('inicio');
+Route::get('/historiaClinica/ant_pers',function(){
+  return view('antecedentes_personales');
+});
+
+Route::get('/historiaClinica/nuevo_pad',function(){
+  return view('nuevo_padecimiento');
+});
+
+Route::get('/historiaClinica/sintomas',function(){
+  return view('sintomas');
 });
 
 Route::get('/registroServidorSocial',function(){
@@ -44,4 +52,19 @@ Route::get('/datosPersonales',function(){
 
 Route::get('pacientes',function(){
   return view('pacientes');
+});
+
+Route::get('/inicio', function () {
+    return view('inicio');
+});
+Route::get('/Consulta',function(){
+  return view('consulta');
+});
+
+Route::get('/calendario', function () {
+  return view('calendario');
+});
+
+Route::get('/cita', function () {
+  return view('cita');
 });

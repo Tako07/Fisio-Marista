@@ -1,6 +1,7 @@
 @extends('layouts.navBar')
 @section('more_style')
-<link href="{{{ asset('css/style_registro.css') }}}" rel="stylesheet">
+<link href="{{{ asset('css/style_datos.css') }}}" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 @endsection
 @section('title','Datos Personales')
 @section('principal')
@@ -9,16 +10,11 @@
 
     <div class="row">
     	<div class="col-md-3 col-sm-4">
-    		<div class="panel panel-default">
+    		<div class="panel panel-default yellowMarista">
     			<div class="panel-heading">
-    				<h3 class="panel-title text-center">Información general</h3>
+    				<h3 class="row titulo">Información general</h3>
     			</div>
-    			<div class="panel-body">
-    				<div class="row">
-    					<div class="col-sm-12 text-center">
-    						<img src="" alt="Foto de perfil" class="img-responsive img-thumbnail">
-    					</div>
-    				</div>
+    			<div class="panel-body ustify-content-md-center">
     				<br>
     				<div class="row">
     					<div class="col-sm-12">
@@ -52,13 +48,12 @@
     	</div>
 
     	<div class="col-md-9 col-sm-8">
-
-    		<div class="panel panel-default">
-    			<div class="panel-heading">
-    				<h3 class="panel-title text-center">Información de contacto</h3>
+    		<div class="panel panel-default grayMarista">
+    			<div class="panel-heading ">
+    				<h3 class="row justify-content-md-center titulo">Información de contacto</h3>
     			</div>
     			<div class="panel-body">
-    				<ul class="simple text-center">
+    				<ul class="simple">
     					<li>
     						<small class="text-muted">Calle y número:</small>
     						<span>Francisco Lazo Estrada #32</span>
@@ -98,3 +93,5 @@
     </div>
 
 </div>
+
+@endsection

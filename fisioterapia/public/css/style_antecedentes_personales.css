@@ -1,0 +1,41 @@
+#personalesNoPatologicos>*{
+  text-align: justify;
+  padding: 1%;
+  margin: auto;
+  width: 95%;
+
+}
+#personalesPatologicos>*{
+  text-align: justify;
+  padding: 1%;
+  margin: auto;
+  width: 95%;
+}
+#personalesGineco>*{
+  text-align: justify;
+  padding: 1%;
+  margin: auto;
+  width: 95%;
+}
+#botonNext{
+  background-color: rgba(0,55,100, 0.7);
+
+}
+.grayMarista{
+  background-color: rgba(157, 157, 156, 0.5) ;
+}
+.yellowMarista{
+  background-color: rgba(255,183,0,0.8);
+  height: 50px;
+}
+.row{
+  margin-bottom: 0px;
+}
+@media screen and (max-width: 550px){
+  #botonNext{
+    font-size: small;
+  }
+  .titulo{
+    font-size: large;
+  }
+}
