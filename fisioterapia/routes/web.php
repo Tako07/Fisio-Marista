@@ -50,6 +50,10 @@ Route::get('/datosPersonales',function(){
   return view('DatosPersonales');
 });
 
+Route::get('pacientes',function(){
+  return view('pacientes');
+});
+
 Route::get('/inicio', function () {
     return view('inicio');
 });
@@ -64,5 +68,3 @@ Route::get('/calendario', function () {
 Route::get('/cita', function () {
   return view('cita');
 });
-
-

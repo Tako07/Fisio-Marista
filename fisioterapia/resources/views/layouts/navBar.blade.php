@@ -16,7 +16,7 @@
 @section('content')
 
 <nav>
-  <div id="nav" class="nav-wrapper">
+  <div id="nav" class="nav-wrapper container-fluid">
 
     <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-small show-on-medium-and-up">
       <i class="material-icons">menu</i>
