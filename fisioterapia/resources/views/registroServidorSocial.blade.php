@@ -5,7 +5,6 @@
 @section('title','Registro de servidor social')
 @section('principal')
 
-<div class="container">
   <h1 class="row justify-content-md-center yellowMarista">  Registro de servidor social</h1>
   <div  class="row justify-content-md-center">
     <div class="container">
@@ -29,5 +28,5 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 @endsection

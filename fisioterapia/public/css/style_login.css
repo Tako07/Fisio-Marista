@@ -59,7 +59,7 @@ h2 {
   background: #fff;
   padding: 30px;
   width: 90%;
-  max-width: 450px;
+  max-width: 600px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -288,8 +288,32 @@ input[type=text]:placeholder {
 }
 .btn-group{
   margin-bottom: 5%;
+  width: 100%;
 }
 .btn-group>button{
   background-color: rgba(0,55,100, 0.7);
   height: 40%;
+  width: 15%;
+}
+#iniciarSesion{
+  width: 50%;
+}
+
+
+@media screen and (max-width: 550px){
+  .btn-group>button{
+    padding: 0px;
+    font-size: x-small;
+    height: 30px;
+  }
+  .btn-group{
+    padding-left: 1px;
+    padding-right: 1px;
+    text-align:right;
+  }
+  #iniciarSesion{
+    width: 80%;
+    text-align: center;
+    font-size: small;
+  }
 }
