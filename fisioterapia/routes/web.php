@@ -68,3 +68,11 @@ Route::get('/calendario', function () {
 Route::get('/cita', function () {
   return view('cita');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appl')
 
 @section('title','login')
 @section('stylesheet')

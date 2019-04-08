@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appl')
 @section('stylesheet')
 <link href="{{{ asset('css/style_navbar.css') }}}" rel="stylesheet">
 <link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet">
