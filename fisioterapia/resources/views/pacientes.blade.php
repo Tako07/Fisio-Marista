@@ -170,7 +170,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="inputCelularFam">Celular del familiar:</label>
-            <input type="text" class="form-control" id="inputCelularFam" name="celularFam" placeholder="Número de celular del familiar" onkeypress="return justNumbers(event);" required="required">
+            <input type="text" class="form-control" id="inputCelularFam" name="celularFam" placeholder="Número de celular del familiar" onkeypress="return justNumbers(event);" required="required" >
           </div>
         </div>
         <br>
