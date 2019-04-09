@@ -50,10 +50,6 @@ Route::get('/datosPersonales',function(){
   return view('DatosPersonales');
 });
 
-Route::get('pacientes',function(){
-  return view('pacientes');
-});
-
 Route::get('/inicio', function () {
     return view('inicio');
 });
@@ -76,3 +72,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//RUTAS PACIENTES
+Route::get('pacientes',function(){
+  	$pacientes = DB::table('paciente')->get();
+        return view('pacientes', compact('pacientes'));
+});
+
+Route::post('pacientes', ['as' => 'pacientes.store', 'uses' => 'PacientesController@store']);

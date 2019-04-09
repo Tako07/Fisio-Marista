@@ -5,6 +5,16 @@
   <script src=" {{{ asset('css/bootstrap4.3.1/js/popper.min.js') }}}"></script>
   <script src=" {{{ asset('css/bootstrap4.3.1/js/bootstrap.min.js') }}}"></script>
   <link rel="stylesheet" href="{{{ asset('css/estiloInicio.css') }}}">
+
+  <script type="text/javascript">
+    function justNumbers(e){
+      var keynum = window.event ? window.event.keyCode : e.which;
+      if ((keynum == 8) || (keynum == 46) || event.keyCode == 13)
+        return true;  
+      return /\d/.test(String.fromCharCode(keynum));
+    }
+  </script>
+
 @endsection
 @section('title','PACIENTES')
 @section('principal')
@@ -42,54 +52,29 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="grayMarista">
-      <th scope="row">Pepito</th>
-      <td>Martinez Robles</td>
-      <td>Calle: calle #1 Colonia: colonia</td>
-      <td>Ingeniero</td>
-      <td>25/08/1996</td>
-      <td><a href="historiaClinica/clinica">Ver historial</a></td>
-    </tr>
-    <tr>
-      <th scope="row">Pepito</th>
-      <td>Martinez Robles</td>
-      <td>Calle: calle #1 Colonia: colonia</td>
-      <td>Ingeniero</td>
-      <td>25/08/1996</td>
-      <td><a href="historiaClinica/clinica">Ver historial</a></td>
-    </tr>
-    <tr class="grayMarista">
-      <th scope="row">Pepito</th>
-      <td>Martinez Robles</td>
-      <td>Calle: calle #1 Colonia: colonia</td>
-      <td>Ingeniero</td>
-      <td>25/08/1996</td>
-      <td><a href="historiaClinica/clinica">Ver historial</a></td>
-    </tr>
-    <tr>
-      <th scope="row">Pepito</th>
-      <td>Martinez Robles</td>
-      <td>Calle: calle #1 Colonia: colonia</td>
-      <td>Ingeniero</td>
-      <td>25/08/1996</td>
-      <td><a href="historiaClinica/clinica">Ver historial</a></td>
-    </tr>
-    <tr class="grayMarista">
-      <th scope="row">Pepito</th>
-      <td>Martinez Robles</td>
-      <td>Calle: calle #1 Colonia: colonia</td>
-      <td>Ingeniero</td>
-      <td>25/08/1996</td>
-      <td><a href="historiaClinica/clinica">Ver historial</a></td>
-    </tr>
-    <tr>
-      <th scope="row">Pepito</th>
-      <td>Martinez Robles</td>
-      <td>Calle: calle #1 Colonia: colonia</td>
-      <td>Ingeniero</td>
-      <td>25/08/1996</td>
-      <td><a href="historiaClinica/clinica">Ver historial</a></td>
-    </tr>
+  <?php $n = 1; ?>
+  @foreach($pacientes as $paciente)
+    @if($n%2 == 1)
+      <tr class="grayMarista">
+        <th scope="row">{{ $paciente->nombres }}</th>
+        <th scope="row">{{ $paciente->ap_Pat }} {{ $paciente->ap_Mat }}</td>
+        <td>{{ $paciente->calle_Numero }}, {{ $paciente->colonia }}</td>
+        <td>{{ $paciente->ocupacion }}</td>
+        <td>{{ $paciente->fecha_nacimiento }}</td>
+        <td><a href="historiaClinica/clinica">Ver historial</a></td>
+      </tr>
+    @else
+      <tr>
+        <th scope="row">{{ $paciente->nombres }}</th>
+        <th scope="row">{{ $paciente->ap_Pat }} {{ $paciente->ap_Mat }}</td>
+        <td>{{ $paciente->calle_Numero }}, {{ $paciente->colonia }}</td>
+        <td>{{ $paciente->ocupacion }}</td>
+        <td>{{ $paciente->fecha_nacimiento }}</td>
+        <td><a href="historiaClinica/clinica">Ver historial</a></td>
+      </tr>
+    @endif
+    <?php $n = $n+1; ?>
+  @endforeach
   </tbody>
   </table>
 </div>
@@ -105,25 +90,26 @@
     </div>
     <div class="modalB-body">
       
-      <form>
+      <form method="POST" action="{{ route('pacientes.store') }}">
+        @csrf
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="inputNombre">Nombre:</label>
-            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre del Paciente">
+            <label for="inputNombre">Nombre(s):</label>
+            <input type="text" class="form-control" name="nombres" id="inputNombre" placeholder="Nombre del Paciente" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
           </div>
           <div class="form-group col-md-4">
             <label for="inputApPat">Apellido Paterno:</label>
-            <input type="text" class="form-control" id="inputApPat" placeholder="Apellido Paterno">
+            <input type="text" class="form-control" id="inputApPat" name="apPat" placeholder="Apellido Paterno" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
           </div>
           <div class="form-group col-md-4">
             <label for="inputApMat">Apellido Materno:</label>
-            <input type="text" class="form-control" id="inputApMat" placeholder="Apellido Materno">
+            <input type="text" class="form-control" id="inputApMat" name="apMat" placeholder="Apellido Materno" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-2">
+          <div class="form-group col-md-1">
             <label for="inputEdad">Edad:</label>
-            <input type="text" class="form-control" id="inputEdad" placeholder="Edad">
+            <input type="text" class="form-control" id="inputEdad" name="edad" placeholder="Edad" onkeypress="return justNumbers(event);" required="required">
           </div>
           <div class="form-group col-md-1">
             <label for="radioSexo">Sexo:</label>
@@ -138,56 +124,60 @@
               </label>
             </div>
           </div>
-          <div class="form-group col-md-3">
-            <label for="inputNacionalidad">Nacionalidad:</label>
-            <input type="text" class="form-control" id="inputNacionalidad" placeholder="Nacionalidad">
+          <div class="form-group col-md-2">
+            <label for="inputNacionalidad">Fecha Nacimiento:</label>
+            <input type="date" class="form-control" id="inputFechaNac" name="fechaNacimiento" placeholder="Estado Civil" required="required">
           </div>
           <div class="form-group col-md-3">
+            <label for="inputNacionalidad">Nacionalidad:</label>
+            <input type="text" class="form-control" id="inputNacionalidad" name="nacionalidad" placeholder="Nacionalidad" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+          </div>
+          <div class="form-group col-md-2">
             <label for="inputNacionalidad">Edo. Civil:</label>
-            <input type="text" class="form-control" id="inputNacionalidad" placeholder="Estado Civil">
+            <input type="text" class="form-control" id="inputNacionalidad" name="edoCivil" placeholder="Estado Civil" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
           </div>
           <div class="form-group col-md-3">
             <label for="inputNacionalidad">Ocupación:</label>
-            <input type="text" class="form-control" id="inputNacionalidad" placeholder="Ocupacion">
+            <input type="text" class="form-control" id="inputNacionalidad" name="ocupacion" placeholder="Ocupacion" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-3">
             <label for="inputCalleNumero">Calle y Número:</label>
-            <input type="text" class="form-control" id="inputCalleNumero" placeholder="Calle y Número">
+            <input type="text" class="form-control" id="inputCalleNumero" name="calleNumero" placeholder="Calle y Número" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
           </div>
           <div class="form-group col-md-3">
             <label for="inputColonia">Colonia:</label>
-            <input type="text" class="form-control" id="inputColonia" placeholder="Colonia">
+            <input type="text" class="form-control" id="inputColonia" name="colonia" placeholder="Colonia" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
           </div>
           <div class="form-group col-md-2">
             <label for="inputCP">Código Postal:</label>
-            <input type="text" class="form-control" id="inputCP" placeholder="Código Postal">
+            <input type="text" class="form-control" id="inputCP" name="cp" placeholder="Código Postal" onkeypress="return justNumbers(event);" required="required">
           </div>
           <div class="form-group col-md-2">
             <label for="inputCelular">Celular:</label>
-            <input type="text" class="form-control" id="inputCelular" placeholder="Número de celular">
+            <input type="text" class="form-control" id="inputCelular" name="celular" placeholder="Número de celular" onkeypress="return justNumbers(event);" required="required">
           </div>
           <div class="form-group col-md-2">
             <label for="inputReligion">Religión:</label>
-            <input type="text" class="form-control" id="inputReligion" placeholder="Religión">
+            <input type="text" class="form-control" id="inputReligion" name="religion" placeholder="Religión" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-8">
             <label for="inputNombreFam">Nombre de familiar a quien llamar en caso de ser necesario:</label>
-            <input type="text" class="form-control" id="inputNombreFam" placeholder="Nombre del familiar">
+            <input type="text" class="form-control" id="inputNombreFam" name="nombreFamiliar" placeholder="Nombre del familiar" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
           </div>
           <div class="form-group col-md-4">
             <label for="inputCelularFam">Celular del familiar:</label>
-            <input type="text" class="form-control" id="inputCelularFam" placeholder="Número de celular del familiar">
+            <input type="text" class="form-control" id="inputCelularFam" name="celularFam" placeholder="Número de celular del familiar" onkeypress="return justNumbers(event);" required="required">
           </div>
         </div>
         <br>
         <div class="form-row">
           <div class="form-group col-md-12" style="text-align: center;">
             <button id="btnSubmit" class="col-md-auto btn btn-lg" type="button" style="background-color: rgba(255,183,0,0.8);color: #fff;line-height: 50%;">Cancelar</button>
-            <button id="btnSubmit" class="col-md-auto btn btn-lg" type="button" style="background-color:rgba(71,72,104, 1);color: #fff;line-height: 50%;">Guardar</button>
+            <button id="btnSubmit" class="col-md-auto btn btn-lg" style="background-color:rgba(71,72,104, 1);color: #fff;line-height: 50%;" type="submit">Guardar</button>
           </div>
         </div>
       </form>
