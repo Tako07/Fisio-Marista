@@ -1,0 +1,17 @@
+#icon_prefix2{
+  width: 90%;
+}
+.image{
+  display: block;
+  margin: auto;
+
+}
+#botonNext{
+  background-color: rgba(0,55,100, 0.7);
+
+}
+@media screen and (max-width: 550px){
+  #botonNext{
+    font-size: small;
+  }
+}
