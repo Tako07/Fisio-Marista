@@ -66,7 +66,7 @@ Route::post('/registroUsuario','DatosPersonalesController@registrarUsuario')->na
 
 Route::get('/Consulta','ConsultaController@index')->name('showConsuta');
 
-Route::get('/calendario','CalendarioController@index')->name('showCalendario');
+Route::get('/calendario','CitaController@index')->name('showCalendario');
 
 Route::get('/cita', function () {
   return view('cita');
