@@ -39,18 +39,18 @@
       <td>{{$paciente->apaterno}} {{$paciente->amaterno}}</td>
       <td>{{$paciente->curp}}</td>
       <th class="cita" scope="col">12/01/2020</th>
-      <td><a href="#">Ver historial</a></td>
+      <td><a href="{{route('showHistoriaPaciente',['paciente'=>$paciente->id_paciente])}}">Ver historial</a></td>
     </tr>
       @php
       $aux=2
       @endphp
     @else
-    <tr class="yellowMarista">
+    <tr class="">
       <th scope="row">{{$paciente->nombres}}</th>
       <td>{{$paciente->apaterno}} {{$paciente->amaterno}}</td>
       <td>{{$paciente->curp}}</td>
       <th class="cita" scope="col">12/01/2020</th>
-      <td><a href="#">Ver historial</a></td>
+      <td><a href="{{route('showHistoriaPaciente',['paciente'=>$paciente->id_paciente])}}">Ver historial</a></td>
     </tr>
       @php
         $aux=1

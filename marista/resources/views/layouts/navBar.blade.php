@@ -24,7 +24,7 @@
 
       <div id="logo" class="row">
         <div class="col s6">
-          <a  href="{{route('inicio')}}"><img id="img_logo" class="resposive-img" src="../img/logo/logo_horizontal_blanco.png"></a>
+          <a  href="{{route('inicio')}}"><img id="img_logo" class="resposive-img" src="{{{ asset('img/logo/logo_horizontal_blanco.png') }}}"></a>
         </div>
       </div>
 
