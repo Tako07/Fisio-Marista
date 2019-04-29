@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PacientesController extends Controller
 {
   public function index(){
-    $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','ocupacion','edad')->get();
+    $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->get();
     $cont=1;
     return view('pacientes',compact(['pacientes','cont']));
   }
