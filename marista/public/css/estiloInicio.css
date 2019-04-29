@@ -1,6 +1,6 @@
 .bg{
-  width:100%;
-  height:120vh;
+  width:100vw;
+  height:100vh;
   background-image: url('../img/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -8,8 +8,8 @@
   /* background-color: #003865;  */
 }
 .color-bg{
-  width:100%;
-  height:120vh;
+  width:100vw;
+  height:100vh;
   background-color: rgba(157,157,156, 0.6);
   overflow: auto;
 }
@@ -17,53 +17,51 @@
   padding: 0px;
   margin: 5px;
 }
-/*
 #datosPersonales{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../img/inicio/datosPersonales.jpg');
-  
+  background-image: url('../img/inicio/datos_personales.jpg');
+  height: 250px;
 }
 #pacientes{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../img/inicio/pacientes.jpg');
+  background-image: url('../img/inicio/fisio.jpg');
 }
 #historia_clinica{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../img/inicio/historiaClinica.jpg');
+  background-image: url('../img/inicio/historia_clinica.jpg');
 }
 #consultas{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../img/inicio/consultas2.jpg');
-  
+  background-image: url('../img/inicio/consultas.jpg');
+  height: 250px;
 }
 #citas{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../img/inicio/citas2.jpg');
+  background-image: url('../img/inicio/citas.jpg');
 }
 #cerrar_sesion{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../img/inicio/cerrarSesion.jpg');
+  background-image: url('../img/inicio/cerrar_sesion.jpg');
 }
-*/
 
 /* The Modal (background) */
 .modalB {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 130px; /* Location of the box */
+  padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -124,13 +122,14 @@
   padding-left: 40%;
   font-size: 120%;
   font-weight: bold;
-    color: rgba(255,183,0,0.9);
+    color: black;
 }
 .modalB-header {
   padding: 2px 16px;
   background-color: #003764;
   color: white;
 }
+
 
 .modalB-body {padding: 2px 16px;}
 
@@ -147,20 +146,20 @@
   background-color: rgba(255,183,0,0.8);
 }
 @media screen and (max-width: 767px) {
-  /*#datosPersonales{
+  #datosPersonales{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('../img/inicio/datos_personales.jpg');
     height: 150px;
     width: 90%;
-  }*/
+  }
   .textoImg{
     position: relative;
     padding: 25%;
     padding-left: 40%;
     font-size: 120%;
     font-weight: bold;
-      color: rgba(255,183,0,0.9);
+      color: black;
   }
 }
