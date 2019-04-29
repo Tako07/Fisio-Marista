@@ -71,3 +71,8 @@ Route::get('/calendario','CitaController@index')->name('showCalendario');
 Route::get('/cita', function () {
   return view('cita');
 });
+
+Route::post('/calendario','CitaController@registrarCita')->name('registrarCita');
+
+Route::post('/calendario/{id}','CitaController@bajaCita')->name('bajaCita');
+

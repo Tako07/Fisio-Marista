@@ -22,10 +22,71 @@
   <div class="modalB-content">
     <div class="modalB-header">
       <span class="closeB" style="font-size: 3vw;">&times;</span>
-      <h2 style="font-size: 3vw;">AGENDAR CITA</h2>
+      <h2 style="font-size: 3vw;" id="tituloCita">AGENDAR CITA</h2>
     </div>
     <div class="modalB-body">
-        ...
+        
+    <form method="POST">
+    @csrf
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="input-field col s12">
+                    @php
+                    $numCitas = 1;
+                    foreach($citas as $cita){
+                        $numCitas = $numCitas+1;
+                    }
+                    @endphp
+                    <input value="{{$numCitas}}" disabled id="inputIdCita" name="inputIdCita" type="text" class="validate">
+                    <label for="inputFechaCita">ID</label>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="input-field col s12">
+                    <input value="1" disabled id="inputFechaCita" name="inputFechaCita" type="text" class="validate">
+                    <label for="inputFechaCita">Fecha de la cita</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="input-field col s12">
+                    <textarea id="inputDescripcion" name="inputDescripcion" class="materialize-textarea" data-length="120"></textarea>
+                    <label for="inputDescripcion">Descripcion Breve</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="input-field col s12">
+                    <input id="inputHoraCita" name="inputHoraCita" type="text" class="validate">
+                    <label for="inputHoraCita">Hora de la cita</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="col s12">
+                    <label>Paciente</label>
+                        <select class="browser-default" id="inputCurpPaciente" name="inputCurp">
+                            <option value="" disabled selected>Selecciona un paciente...</option>
+                            @foreach($pacientes as $paciente)
+                                <option value="{{$paciente->curp}}">{{$paciente->nombres}} {{$paciente->apaterno}} {{$paciente->amaterno}}</option>
+                            @endforeach
+                        </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="col s12">
+                    <label for="inputColor">Color</label>
+                    <input id="inputColor" name="inputColor" type="color" class="validate">
+                </div>
+            </div>
+        </div>
+    </form>
+
     </div>
     <div class="modalB-footer">
       
@@ -44,6 +105,55 @@
 <script src="js/es.js"></script>
 
 <script>
+    var NuevoEvento;
+    $("#btnAgregar").click(function(){
+        EnviarInfo();
+    });
+
+    $("#btnEliminar").click(function(){
+        BajaCita();
+    });
+
+    function EnviarInfo(){
+        var token = "{{ csrf_token() }}";
+        $.ajax({
+            type:"post",
+            url:"{{route('registrarCita')}}",
+            data:{inputDescripcion:$("#inputDescripcion").val(),
+                inputCurpPaciente:$("#inputCurpPaciente").val(),
+                inputFechaCita:$("#inputFechaCita").val(),
+                inputHoraCita:$("#inputHoraCita").val(),
+                inputColor:$("#inputColor").val(),
+                inputIdUsuario:{{session('id_usuario')}},
+                _token:token},
+            success:function(){
+                $("#CalendarioWeb").fullCalendar('renderEvent',{
+                    id:$("#inputIdCita").val(),
+                    title:'Cita de: '+$("#inputCurpPaciente").val(),
+                    descripcion:$("#inputDescripcion").val(),
+                    start:$("#inputFechaCita").val()+" "+$("#inputHoraCita").val(),
+                    end:$("#inputFechaCita").val()+" "+$("#inputHoraCita").val(),
+                    color:$("#inputColor").val()
+                });
+                $("#modalNuevaCita").css("display","none");
+            }
+        });
+    }
+
+    function BajaCita(){
+        var token = "{{ csrf_token() }}";
+        $.ajax({
+            type:"post",
+            url:"{{route('bajaCita', ['id' => 1])}}",
+            data:{inputIdCita:$("#inputIdCita").val(),
+                _token:token},
+            success:function(){
+                $("#CalendarioWeb").fullCalendar('removeEvents', $("#inputIdCita").val());
+                $("#modalNuevaCita").css("display","none");
+            }
+        });
+    }
+
     $(document).ready(function () {
         $('#CalendarioWeb').fullCalendar({
             header: {
@@ -51,13 +161,8 @@
                 center: 'title',
                 right: 'today,prev,next, btnNuevaCita'
             },
-            customButtons:{
-                btnNuevaCita:{
-                    text:"Nueva Cita",
-                    click:function(){}
-                }
-            },
             dayClick:function(date,jsEvent,view){
+                $('#inputFechaCita').val(date.format());
                 $("#modalNuevaCita").css("display","block");
             },
             events:[
@@ -66,11 +171,26 @@
                     id: {{$cita->id}},
                     title:'Cita de: {{$cita->curp_paciente}}',
                     descripcion: '{{$cita->descripcion}}',
-                    start: '{{$cita->fecha_hora_cita}}',
+                    start: '{{$cita->fecha_cita}} {{$cita->hora_cita}}',
                     color:'{{$cita->color}}'
-                }
+                },
             @endforeach
-            ]
+            ],
+            eventClick:function(callEvent,jsEvent,view){
+
+                $("#tituloCita").html(callEvent.title);
+
+                $("#inputIdCita").val(callEvent.id);
+                $("#inputDescripcion").val(callEvent.descripcion);
+                $("#inputColor").val(callEvent.color);
+
+                FechaHora= callEvent.start._i.split(" ");
+                $("#inputFechaCita").val(FechaHora[0]);
+                $("#inputHoraCita").val(FechaHora[1]);
+
+                $("#modalNuevaCita").css("display","block");
+
+            }
         });
         // Get the modal
         var modal = document.getElementById('modalNuevaCita');

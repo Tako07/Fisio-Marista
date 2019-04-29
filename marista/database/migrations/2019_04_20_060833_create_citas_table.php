@@ -17,11 +17,13 @@ class CreateCitasTable extends Migration
             $table->increments('id');
             $table->text('descripcion')->nullable();
             $table->string('curp_paciente');
-            $table->dateTime('fecha_hora_cita');
+            $table->date('fecha_cita');
+            $table->Time('hora_cita');
             $table->char('asistencia',1);
             $table->string('status');
             $table->string('agendada_por');
             $table->string('color');
+            $table->string('estado');
             $table->timestamps();
         });
     }

@@ -8,8 +8,8 @@ class cita extends Model
 {
   protected $table ="citas";
   protected $fillable = [
-      'id','descripcion','curp_paciente','fecha_hora_cita',
-      'asistencia','status','agendada_por','color'
+      'id','descripcion','curp_paciente','fecha_cita','hora_cita',
+      'asistencia','status','agendada_por','color','estado'
   ];
 
   /**
