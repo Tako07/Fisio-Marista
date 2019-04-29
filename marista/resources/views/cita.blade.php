@@ -136,6 +136,15 @@
                     color:$("#inputColor").val()
                 });
                 $("#modalNuevaCita").css("display","none");
+                @php
+                    $numCitas = 1;
+                    foreach($citas as $cita){
+                        $numCitas = $numCitas+1;
+                    }
+                @endphp
+                document.getElementById("inputIdCita").value = {{$numCitas+1}};
+                document.getElementById("inputDescripcion").value = '';
+                document.getElementById("inputHoraCita").value = '';
             }
         });
     }
@@ -150,11 +159,29 @@
             success:function(){
                 $("#CalendarioWeb").fullCalendar('removeEvents', $("#inputIdCita").val());
                 $("#modalNuevaCita").css("display","none");
+                @php
+                    $numCitas = 1;
+                    foreach($citas as $cita){
+                        $numCitas = $numCitas+1;
+                    }
+                @endphp
+                document.getElementById("inputIdCita").value = {{$numCitas+1}};
+                document.getElementById("inputDescripcion").value = '';
+                document.getElementById("inputHoraCita").value = '';
             }
         });
     }
 
     $(document).ready(function () {
+        @php
+            $numCitas = 1;
+            foreach($citas as $cita){
+                $numCitas = $numCitas+1;
+            }
+        @endphp
+        document.getElementById("inputDescripcion").value = '';
+        document.getElementById("inputHoraCita").value = '';
+        document.getElementById("inputIdCita").value = {{$numCitas+1}};
         $('#CalendarioWeb').fullCalendar({
             header: {
                 left: 'month,agendaWeek,agendaDay',
@@ -168,11 +195,14 @@
             events:[
             @foreach($citas as $cita)
                 {
-                    id: {{$cita->id}},
-                    title:'Cita de: {{$cita->curp_paciente}}',
-                    descripcion: '{{$cita->descripcion}}',
-                    start: '{{$cita->fecha_cita}} {{$cita->hora_cita}}',
-                    color:'{{$cita->color}}'
+                    @if ($cita->estado == 'ACTIVA')
+                        id: '{{$cita->id}}',
+                        title:'{{$cita->curp_paciente}}',
+                        descripcion: '{{$cita->descripcion}}',
+                        start: '{{$cita->fecha_cita}} {{$cita->hora_cita}}',
+                        color:'{{$cita->color}}',
+                        nombres:'{{ $cita->nombres }}'
+                    @endif
                 },
             @endforeach
             ],
@@ -183,6 +213,8 @@
                 $("#inputIdCita").val(callEvent.id);
                 $("#inputDescripcion").val(callEvent.descripcion);
                 $("#inputColor").val(callEvent.color);
+                $("#inputCurpPaciente").val(callEvent.title);
+                console.log(callEvent.nombres);
 
                 FechaHora= callEvent.start._i.split(" ");
                 $("#inputFechaCita").val(FechaHora[0]);
