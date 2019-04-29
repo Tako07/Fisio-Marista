@@ -32,5 +32,9 @@ class roles_seeder extends Seeder
         $rol = new roles();
         $rol->descripcion='practicante';
         $rol->save();
+
+        $rol = new roles();
+        $rol->descripcion='servidor social';
+        $rol->save();
     }
 }

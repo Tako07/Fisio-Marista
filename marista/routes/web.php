@@ -23,7 +23,23 @@ Route::get('/inicio', function () {
     return view('inicio');
 })->name('inicio');
 
+Route::get('/historiaClinica/{paciente}','HistoriaClinicaController@showPaciente')
+->name('showHistoriaPaciente')
+->where(['paciente' => '[0-9]+']);
+
+Route::get('/historiaClinica/diagnostico/{paciente}','HistoriaClinicaController@showDiagnostico')
+->name('showDiagnoticoPaciente')
+->where(['paciente' => '[0-9]+']);
+
+Route::get('/historiaClinica/actual/{paciente}/{diagnostico}','HistoriaClinicaController@showDiagnosticoActual')
+->name('showDiagnosticoActual')
+->where(['paciente' => '[0-9]+','diagnostico'=>'[0-9]+']);
+
 Route::get('/historiaClinica','HistoriaClinicaController@index')->name('showHistoriaClinica');
+
+Route::get('/nuevaHistoria/{paciente}','DiagnosticoController@nuevoDiagnostico')
+->name('nuevoDiagnostico')
+->where(['paciente' => '[0-9]+']);
 
 Route::get('/historiaClinica/ant_fam',function(){
   return view('antecedentes_familiares');
@@ -58,6 +74,10 @@ Route::get('/datosPersonales','DatosPersonalesController@index')->name('showDato
 Route::get('/datosPersonalesAdmin','DatosPersonalesController@admin')->name('showDatosPersonalesAdmin');
 
 Route::get('/pacientes','PacientesController@index')->name('showPacientes');
+
+Route::get('/altaPaciente/{pacietne}/{diagnostico}','HistoriaClinicaController@alta')
+->name('altaPaciente')
+->where(['paciente'=>'[0-9]+','diagnostico'=>'[0-9]+']);
 
 Route::post('/pacientes','PacientesController@registrarPaciente')->name('registrarPaciente');
 

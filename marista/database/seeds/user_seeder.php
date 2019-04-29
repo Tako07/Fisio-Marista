@@ -46,5 +46,39 @@ class user_seeder extends Seeder
         $usuario->password='$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
         $usuario->save();
 
+        $usuario= new usuario();
+        $usuario->nombres='Miguel';
+        $usuario->username='terapeuta';
+        $usuario->rol='3';
+        $usuario->apaterno='Perez';
+        $usuario->amaterno='Martinez';
+        $usuario->email='migue@example.com';
+        $usuario->fecha_nacimiento='1990-12-12';
+        $usuario->calle='Morelos sur #12';
+        $usuario->colonia='Robles';
+        $usuario->cp='54345';
+        $usuario->num_tel='4432312321';
+        $usuario->num_cel='4432345432';
+        $usuario->password='$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
+        $usuario->status='1';
+        $usuario->save();
+
+        $usuario= new usuario();
+        $usuario->nombres='Ulises';
+        $usuario->username='pasante';
+        $usuario->rol='4';
+        $usuario->apaterno='Ramirez';
+        $usuario->amaterno='Martinez';
+        $usuario->email='Uli@example.com';
+        $usuario->fecha_nacimiento='1990-12-12';
+        $usuario->calle='Morelos sur #12';
+        $usuario->colonia='Robles';
+        $usuario->cp='54345';
+        $usuario->num_tel='4432312321';
+        $usuario->num_cel='4432345432';
+        $usuario->password='$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
+        $usuario->status='1';
+        $usuario->save();
+
     }
 }
