@@ -37,9 +37,14 @@ Route::get('/historiaClinica/actual/{paciente}/{diagnostico}','HistoriaClinicaCo
 
 Route::get('/historiaClinica','HistoriaClinicaController@index')->name('showHistoriaClinica');
 
+Route::post('/nuevaHistoria','DiagnosticoController@guardaDiagnostico')
+->name('guardaDiagnostico');
+
 Route::get('/nuevaHistoria/{paciente}','DiagnosticoController@nuevoDiagnostico')
 ->name('nuevoDiagnostico')
 ->where(['paciente' => '[0-9]+']);
+
+
 
 Route::get('/historiaClinica/ant_fam',function(){
   return view('antecedentes_familiares');

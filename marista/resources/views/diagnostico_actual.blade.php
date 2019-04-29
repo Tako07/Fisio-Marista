@@ -202,7 +202,7 @@
     </div>
   </div>
 </div>
-
+@if($esqueletico!=null)
 @foreach($esqueletico as $esqueletico => $respuesta)
 <div class="row justify-content-md-center">
   <div class="col-6">
@@ -231,6 +231,7 @@
   </table>
 </div>
 @endforeach
+@endif
 
 <div class="row justify-content-md-center">
   <div class="col-6">
@@ -249,12 +250,14 @@
       </tr>
     </thead>
     <tbody>
+      @if($postura!=null)
       @foreach($postura as $postura => $dato)
       <tr class="grayMarista">
         <td>{{$postura}}</td>
         <td>{{$dato}}</td>
       </tr>
       @endforeach
+      @endif
     </tbody>
   </table>
 </div>
