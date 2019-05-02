@@ -164,11 +164,10 @@
                         <div class="form-group col-md-12">
                             <div class="col s12">
                                 <label for="inputColor">Color</label>
-                                <input id="inputColor" name="inputColor" type="color" class="validate col-md-12">
+                                <input value="#003764" id="inputColor" name="inputColor" type="color" class="validate col-md-12">
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" id="nombreMostrar">
                 </form>
             </div>
             <div class="modalB-footer">      
@@ -202,6 +201,8 @@
 
         function AgregaCita(){
             var token = "{{csrf_token()}}";
+            var nombreComp = $( "#inputCurpPaciente option:selected" ).text();
+            console.log(nombreComp);
             $.ajax({
                 type:"post",
                 url:"{{route('registrarCita')}}",
@@ -215,11 +216,11 @@
                 success:function(){
                     $("#CalendarioWeb").fullCalendar('renderEvent',{
                         id:$("#inputIdCita").val(),
-                        title:$("#inputCurpPaciente").val(),
+                        title:nombreComp,
                         descripcion:$("#inputDescripcion").val(),
                         start:$("#inputFechaCita").val()+" "+$("#inputHoraCita").val(),
                         end:$("#inputFechaCita").val()+" "+$("#inputHoraCita").val(),
-                        color:$("#inputColor").val()
+                        color:$("#inputColor").val(),
                     });
                     $("#modalNuevaCita").css("display","none");
                 }
@@ -243,6 +244,7 @@
         function ModificaCita(){
             var token = "{{ csrf_token() }}";
             var id = $('#inputIdCitaAct').val();
+            var nombreComp = $( "#inputCurpPacienteAct option:selected" ).text();
             $.ajax({
                 type:"post",
                 url:"{{route('modificaCita', ['id' => 1, 'MoB' => 'M'])}}",
@@ -258,11 +260,12 @@
                     $("#CalendarioWeb").fullCalendar('removeEvents', $("#inputIdCitaAct").val());
                     $("#CalendarioWeb").fullCalendar('renderEvent',{
                         id:$("#inputIdCitaAct").val(),
-                        title:$("#nombreMostrar").val(),
+                        title:nombreComp,
                         descripcion:$("#inputDescripcionAct").val(),
                         start:$("#inputFechaCitaAct").val()+" "+$("#inputHoraCitaAct").val(),
                         end:$("#inputFechaCitaAct").val()+" "+$("#inputHoraCitaAct").val(),
-                        color:$("#inputColorAct").val()
+                        color:$("#inputColorAct").val(),
+                        curp:$("#inputCurpPacienteAct").val()
                     });
                     $("#modalActualizaCita").css("display","none");
                 }
@@ -274,7 +277,7 @@
                 header: {
                     left: 'month,agendaWeek,agendaDay',
                     center: 'title',
-                    right: 'today,prev,next, btnNuevaCita'
+                    right: 'today,prev,next'
                 },
                 dayClick:function(date,jsEvent,view){
                     $('#inputFechaCita').val(date.format('YYYY-MM-DD'));
@@ -296,7 +299,7 @@
                     @foreach($citas as $cita){
                         @if ($cita->estado == 'ACTIVA')
                             id: '{{$cita->id}}',
-                            title:'{{$cita->nombres}} {{$cita->apaterno}}',
+                            title:'{{$cita->nombres}} {{$cita->apaterno}} {{$cita->amaterno}}',
                             descripcion: '{{$cita->descripcion}}',
                             start: '{{$cita->fecha_cita}} {{$cita->hora_cita}}',
                             end: '{{$cita->fecha_cita}} {{$cita->hora_cita}}',
@@ -311,9 +314,8 @@
                     $("#inputDescripcionAct").val(callEvent.descripcion);
                     $("#inputColorAct").val(callEvent.color);
                     $("#inputCurpPacienteAct").val(callEvent.curp);
-                    $("#nombreMostrar").val(callEvent.title);
 
-                    FechaHora= callEvent.start._i.split(" ");
+                    FechaHora= callEvent.start.format().split("T");
                     $("#inputFechaCitaAct").val(FechaHora[0]);
                     $("#inputHoraCitaAct").val(FechaHora[1]);
                     @if(isset($cita->curp_paciente))
@@ -330,7 +332,6 @@
                     $("#inputDescripcionAct").val(callEvent.descripcion);
                     $("#inputColorAct").val(callEvent.color);
                     $("#inputCurpPacienteAct").val(callEvent.curp);
-                    $("#nombreMostrar").val(callEvent.title);
 
                     FechaHora= callEvent.start.format().split("T");
                     $("#inputFechaCitaAct").val(FechaHora[0]);
