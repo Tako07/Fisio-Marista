@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{{ asset('css/estiloInicio.css') }}}">
     <script src="css/bootstrap4.3.1/js/bootstrap-clockpicker.js"></script>
     <link rel="stylesheet" href="css/bootstrap4.3.1/css/bootstrap-clockpicker.css">
+    <script src="{{{ asset('css/sweetalert/dist/sweetalert.min.js') }}}"></script>
 
     <div class="container">
         <br>
@@ -60,7 +61,7 @@
                         <div class="form-group col-md-12">
                             <div class="input-group clockpicker" data-autoclose="true">
                                 <div class="input-field col s12">
-                                    <input id="inputHoraCitaAct" name="inputHoraCitaAct" type="text" value="9:30" class="validate">
+                                    <input id="inputHoraCitaAct" name="inputHoraCitaAct" type="text" value="9:30" class="validate" required>
                                     <label for="inputHoraCitaAct">Hora de la cita</label>
                                 </div>
                             </div>
@@ -70,7 +71,7 @@
                         <div class="form-group col-md-12">
                             <div class="col s12">
                                 <label>Paciente</label>
-                                <select class="browser-default" id="inputCurpPacienteAct" name="inputCurpPacienteAct">
+                                <select class="browser-default" id="inputCurpPacienteAct" name="inputCurpPacienteAct" required>
                                     <option value="" disabled selected>Selecciona un paciente...</option>
                                     @foreach($pacientes as $paciente)
                                         <option value="{{$paciente->curp}}">{{$paciente->nombres}} {{$paciente->apaterno}} {{$paciente->amaterno}}</option>
@@ -141,7 +142,7 @@
                         <div class="form-group col-md-12">
                             <div class="input-group clockpicker" data-autoclose="true">
                                 <div class="input-field col s12">
-                                    <input id="inputHoraCita" name="inputHoraCita" type="text" value="9:30" class="validate">
+                                    <input id="inputHoraCita" name="inputHoraCita" type="text" value="9:30" class="validate" required>
                                     <label for="inputHoraCita">Hora de la cita</label>
                                 </div>
                             </div>
@@ -188,7 +189,12 @@
     <script>
         var NuevoEvento;
         $("#btnAgregar").click(function(){
-            AgregaCita();
+            var hora = document.getElementById("inputHoraCita").value;
+            var paciente = document.getElementById("inputCurpPaciente").value;
+            if(hora == '' || paciente == '0')
+                swal('¡RELLENA TODOS LOS CAMPOS!', '', 'error');
+            else
+                AgregaCita();
         });
 
         $("#btnEliminar").click(function(){
@@ -196,13 +202,17 @@
         });
 
         $("#btnModificar").click(function(){
-            ModificaCita();
+            var hora = document.getElementById("inputHoraCitaAct").value;
+            var paciente = document.getElementById("inputCurpPacienteAct").value;
+            if(hora == '' || paciente == '0')
+                swal('¡RELLENA TODOS LOS CAMPOS!', '', 'error');
+            else
+                ModificaCita();
         });
 
         function AgregaCita(){
             var token = "{{csrf_token()}}";
             var nombreComp = $( "#inputCurpPaciente option:selected" ).text();
-            console.log(nombreComp);
             $.ajax({
                 type:"post",
                 url:"{{route('registrarCita')}}",

@@ -175,7 +175,7 @@
         <div class="form-row">
           <div class="form-group col-md-3">
             <div class="input-field col s12">
-              <input type="text" class="form-control" id="inputCalleNumero" name="calleNumero" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <input type="text" class="form-control" id="inputCalleNumero" name="calle" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
               <label for="inputCalleNumero">Calle y Número:</label>
             </div>
           </div>
