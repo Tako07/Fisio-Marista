@@ -48,8 +48,6 @@ Route::get('/nuevaHistoria/{paciente}','DiagnosticoController@nuevoDiagnostico')
 
 Route::post('/pacientes/{x}','PacientesController@modificaPaciente')->name('modificaPaciente');
 
-Route::post('/calendario/{id}/{MoB}','CiitaController@modificaCita')->name('modificaCita');
-
 Route::get('/notas/{paciente}/{diagnostico}','DiagnosticoController@showNotasValoracion')
 ->where(['paciente' => '[0-9]+','diagnostico'=>'[0-9]+'])
 ->name('notas_valoracion');
@@ -122,4 +120,4 @@ Route::get('/cita', function () {
 
 Route::post('/calendario','CitaController@registrarCita')->name('registrarCita');
 
-Route::post('/calendario/{id}','CitaController@bajaCita')->name('bajaCita');
+Route::post('/calendario/{id}/{MoB}','CitaController@modificaCita')->name('modificaCita');
