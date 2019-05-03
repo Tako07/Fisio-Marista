@@ -12,7 +12,7 @@ class DatosPersonalesController extends Controller
       return view('DatosPersonales',compact(['usr']));
     }
     public function admin(){
-      $usuarios=usuario::select('nombres','apaterno','amaterno','rol','calle','colonia','fecha_nacimiento')->get();
+      $usuarios=usuario::select('usuario.nombres','usuario.apaterno','usuario.amaterno','usuario.rol','usuario.calle','usuario.colonia','usuario.fecha_nacimiento','roles.descripcion')->join('roles','id','=','usuario.rol')->get();
       $cont=1;
       return view('usuarios',compact(['usuarios','cont']));
     }

@@ -47,7 +47,7 @@
         <th scope="row">{{$usuario->nombres}}</th>
         <td>{{$usuario->apaterno}} {{$usuario->amaterno}}</td>
         <td>Calle: {{$usuario->calle}} Colonia: {{$usuario->colonia}}</td>
-        <td>{{$usuario->rol}}</td>
+        <td>{{$usuario->descripcion}}</td>
         <td>{{$usuario->fecha_nacimiento}}</td>
         <td><a href="historiaClinica/clinica">Ver historial</a></td>
       </tr>
@@ -59,7 +59,7 @@
         <th scope="row">{{$usuario->nombres}}</th>
         <td>{{$usuario->apaterno}} {{$usuario->amaterno}}</td>
         <td>Calle: {{$usuario->calle}} Colonia: {{$usuario->colonia}}</td>
-        <td>{{$usuario->rol}}</td>
+        <td>{{$usuario->descripcion}}</td>
         <td>{{$usuario->fecha_nacimiento}}</td>
         <td><a href="historiaClinica/clinica">Ver historial</a></td>
       </tr>
