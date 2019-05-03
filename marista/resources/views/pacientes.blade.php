@@ -382,11 +382,13 @@
       // SPAN QUE CIERRA LOS MODAL
       var span = document.getElementById("span");
       var spanAct = document.getElementById("spanAct");
-      //CUANDO SE DE CLIC EN EL BOTON SE ABRE EL MODAL      
+      //CUANDO SE DE CLIC EN EL BOTON SE ABRE EL MODAL  
+      @if(session('rol') == '1' || session('rol') == '2' || session('rol') == '3' || session('rol') == '4')    
       btn.onclick = function() {
         modal.style.display = "block";
         document.getElementById('inputCurp').focus();
       }
+      @endif
       //CUANDO EL USUARIO DE CLIC AL SPAN SE CIERRA EL MODAL
       span.onclick = function() {
         modal.style.display = "none";
