@@ -123,7 +123,7 @@ class DiagnosticoController extends Controller
     }
     public function showNotasValoracion($paciente,$diagnostico){
       $notas=notas_valoracion::where(['id_paciente'=>$paciente,'id_diagnostico'=>$diagnostico])->get();
-      return view('notas_valoracion'compact('notas'));
+      return view('notas_valoracion',compact('notas'));
     }
     public function verNota($id_nota){
       $nota=notas_valoracion::where('id_nota',$id_nota)->get()->first();
