@@ -107,4 +107,4 @@ Route::get('/cita', function () {
 
 Route::post('/calendario','CitaController@registrarCita')->name('registrarCita');
 
-Route::post('/calendario/{id}','CitaController@bajaCita')->name('bajaCita');
+Route::post('/calendario/{id}/{MoB}','CitaController@modificaCita')->name('modificaCita');

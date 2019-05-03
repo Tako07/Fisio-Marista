@@ -6,6 +6,7 @@
   <script src=" {{{ asset('css/bootstrap4.3.1/js/popper.min.js') }}}"></script>
   <script src=" {{{ asset('css/bootstrap4.3.1/js/bootstrap.min.js') }}}"></script>
   <link rel="stylesheet" href="{{{ asset('css/estiloInicio.css') }}}">
+  <script src="{{{ asset('css/sweetalert/dist/sweetalert.min.js') }}}"></script>
 
   <script type="text/javascript">
     function justNumbers(e){
@@ -91,26 +92,42 @@
     </div>
     <div class="modalB-body">
 
-      <form method="POST" action="{{ route('registrarPaciente') }}">
+      <form method="POST" action="{{ route('registrarPaciente') }}" id="formulario">
         @csrf
         <div class="form-row">
+          <div class="form-group col-md-12">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputCurp" name="curp" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputCurp">CURP:</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="inputNombre">Nombre(s):</label>
-            <input type="text" class="form-control" name="nombre" id="inputNombre" placeholder="Nombre del Paciente" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" name="nombre" id="inputNombre" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputNombre">Nombre(s):</label>
+            </div>
           </div>
           <div class="form-group col-md-4">
-            <label for="inputApPat">Apellido Paterno:</label>
-            <input type="text" class="form-control" id="inputApPat" name="apaterno" placeholder="Apellido Paterno" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputApPat" name="apaterno" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputApPat">Apellido Paterno:</label>
+            </div>
           </div>
           <div class="form-group col-md-4">
-            <label for="inputApMat">Apellido Materno:</label>
-            <input type="text" class="form-control" id="inputApMat" name="amaterno" placeholder="Apellido Materno" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputApMat" name="amaterno" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputApMat">Apellido Materno:</label>
+            </div>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-1">
-            <label for="inputEdad">Edad:</label>
-            <input type="text" class="form-control" id="inputEdad" name="edad" placeholder="Edad" onkeypress="return justNumbers(event);" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputEdad" name="edad" class="validate" onkeypress="return justNumbers(event);" required="required">
+              <label for="inputEdad">Edad:</label>
+            </div>
           </div>
           <div class="form-group col-md-1">
             <label for="radioSexo">Sexo:</label>
@@ -126,12 +143,14 @@
             </div>
           </div>
           <div class="form-group col-md-2">
-            <label for="inputNacionalidad">Fecha Nacimiento:</label>
-            <input type="date" class="form-control" id="inputFechaNac" name="fechaNacimiento" placeholder="Estado Civil" required="required">
+            <label for="inputFechaNac">Fecha Nacimiento:</label>
+            <input type="date" class="form-control" id="inputFechaNac" name="fechaNacimiento" required="required">
           </div>
           <div class="form-group col-md-3">
-            <label for="inputNacionalidad">Nacionalidad:</label>
-            <input type="text" class="form-control" id="inputNacionalidad" name="nacionalidad" placeholder="Nacionalidad" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputNacionalidad" name="nacionalidad" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputNacionalidad">Nacionalidad:</label>
+            </div>
           </div>
           <div class="form-group col-md-2">
             <label for="radioSexo">Estado civil:</label>
@@ -147,52 +166,62 @@
             </div>
           </div>
           <div class="form-group col-md-3">
-            <label for="inputNacionalidad">Ocupación:</label>
-            <input type="text" class="form-control" id="inputNacionalidad" name="ocupacion" placeholder="Ocupacion" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputNacionalidad" name="ocupacion" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputNacionalidad">Ocupación:</label>
+            </div>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-3">
-            <label for="inputCalleNumero">Calle y Número:</label>
-            <input type="text" class="form-control" id="inputCalleNumero" name="calleNumero" placeholder="Calle y Número" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputCalleNumero" name="calle" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputCalleNumero">Calle y Número:</label>
+            </div>
           </div>
           <div class="form-group col-md-3">
-            <label for="inputColonia">Colonia:</label>
-            <input type="text" class="form-control" id="inputColonia" name="colonia" placeholder="Colonia" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputColonia" name="colonia" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputColonia">Colonia:</label>
+            </div>
           </div>
           <div class="form-group col-md-2">
-            <label for="inputCP">Código Postal:</label>
-            <input type="text" class="form-control" id="inputCP" name="cp" placeholder="Código Postal" onkeypress="return justNumbers(event);" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputCP" name="cp" class="validate" onkeypress="return justNumbers(event);" required="required">
+              <label for="inputCP">Código Postal:</label>
+            </div>
           </div>
           <div class="form-group col-md-2">
-            <label for="inputCelular">Celular:</label>
-            <input type="text" class="form-control" id="inputCelular" name="celular" placeholder="Número de celular" onkeypress="return justNumbers(event);" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputCelular" name="celular" class="validate" onkeypress="return justNumbers(event);" required="required">
+              <label for="inputCelular">Celular:</label>
+            </div>
           </div>
           <div class="form-group col-md-2">
-            <label for="inputReligion">Religión:</label>
-            <input type="text" class="form-control" id="inputReligion" name="religion" placeholder="Religión" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputReligion" name="religion" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+              <label for="inputReligion">Religión:</label>
+            </div>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-8">
-            <label for="inputNombreFam">Nombre de familiar a quien llamar en caso de ser necesario:</label>
-            <input type="text" class="form-control" id="inputNombreFam" name="familiar" placeholder="Nombre del familiar" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputNombreFam" name="familiar" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+              <label for="inputNombreFam">Nombre de familiar a quien llamar en caso de ser necesario:</label>
+            </div>
           </div>
           <div class="form-group col-md-4">
-            <label for="inputCelularFam">Celular del familiar:</label>
-            <input type="text" class="form-control" id="inputCelularFam" name="telefono" placeholder="Número de celular del familiar" onkeypress="return justNumbers(event);" required="required" >
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-8">
-            <label for="inputNombreFam">CURP:</label>
-            <input type="text" class="form-control" id="inputCurp" name="curp" placeholder="CURP" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputCelularFam" name="telefono" class="validate" onkeypress="return justNumbers(event);" required="required">
+              <label for="inputCelularFam">Celular del familiar:</label>
+            </div>
           </div>
         </div>
         <br>
         <div class="form-row">
           <div class="form-group col-md-12" style="text-align: center;">
-            <button id="btnSubmit" class="col-md-auto btn btn-lg" type="button" style="background-color: rgba(255,183,0,0.8);color: #fff;line-height: 50%;">Cancelar</button>
+            <button id="btnSubmit" class="col-md-auto btn btn-lg" type="button" style="background-color: rgba(255,183,0,0.8);color: #fff;line-height: 50%;" onclick="document.getElementById('modalNuevoPaciente').style.display = 'none';">Cancelar</button>
             <button id="btnSubmit" class="col-md-auto btn btn-lg" type="submit" style="background-color:rgba(71,72,104, 1);color: #fff;line-height: 50%;">Guardar</button>
           </div>
         </div>
@@ -218,7 +247,7 @@
   // When the user clicks the button, open the modal
       
   btn.onclick = function() {modal.style.display = "block";
-  document.getElementById('inputNombre').focus();}
+  document.getElementById('inputCurp').focus();}
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {modal.style.display = "none";
   document.getElementById('inputBuscaPaciente').focus();}
@@ -229,5 +258,8 @@
       document.getElementById('inputBuscaPaciente').focus();
     }
   }
+  $("#formulario").submit(function(event){
+    swal('¡REGISTRO EXITOSO!', '', 'success');
+  });
 </script>
 @endsection

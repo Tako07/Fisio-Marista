@@ -11,7 +11,7 @@ use Auth;
 class CitaController extends Controller
 {
   public function index(){
-    $citas=cita::select('id','descripcion','curp_paciente','fecha_cita','hora_cita','asistencia','status','agendada_por','color','estado')->where('estado', '=', 'ACTIVA')->get();
+    $citas=cita::select('citas.id','citas.descripcion','citas.curp_paciente','citas.fecha_cita','citas.hora_cita','citas.asistencia','citas.status','citas.agendada_por','citas.color','citas.estado','paciente.nombres','paciente.apaterno','paciente.amaterno')->join('paciente','curp','=','citas.curp_paciente')->get();
     $pacientes=paciente::select('nombres','apaterno','amaterno','curp')->get();
     return view('cita',compact(['citas']),compact(['pacientes']));
   }
@@ -30,8 +30,8 @@ class CitaController extends Controller
         $cita->estado = 'ACTIVA';
         $cita->save();
 
-        $citas=cita::select('id','descripcion','curp_paciente','fecha_cita','hora_cita','asistencia','status','agendada_por','color','estado')->where('estado', '=', 'ACTIVA')->get();
-        $pacientes=paciente::select('nombres','apaterno','amaterno','curp')->get();
+        $citas=cita::select('citas.id','citas.descripcion','citas.curp_paciente','citas.fecha_cita','citas.hora_cita','citas.asistencia','citas.status','citas.agendada_por','citas.color','citas.estado','paciente.nombres','paciente.apaterno','paciente.amaterno')->join('paciente','curp','=','citas.curp_paciente')->get();
+    $pacientes=paciente::select('nombres','apaterno','amaterno','curp')->get();
     
         return view('cita',compact(['citas']),compact(['pacientes']));
     }
@@ -44,9 +44,34 @@ class CitaController extends Controller
     $cita->estado = "BAJA";
     $cita->save();
 
-    $citas=cita::select('id','descripcion','curp_paciente','fecha_cita','hora_cita','asistencia','status','agendada_por','color','estado')->where('estado', '=', 'ACTIVA')->get();
+    $citas=cita::select('citas.id','citas.descripcion','citas.curp_paciente','citas.fecha_cita','citas.hora_cita','citas.asistencia','citas.status','citas.agendada_por','citas.color','citas.estado','paciente.nombres','paciente.apaterno','paciente.amaterno')->join('paciente','curp','=','citas.curp_paciente')->get();
     $pacientes=paciente::select('nombres','apaterno','amaterno','curp')->get();
     return view('cita',compact(['citas']),compact(['pacientes']));
-
   }
+
+  public function modificaCita(Request $request, $id, $MoB){
+
+    if ($MoB == 'B') {
+        $cita = Cita::find($request->input('inputIdCitaAct'));
+        $cita->estado = "BAJA";
+        $cita->save();
+
+        $citas=cita::select('citas.id','citas.descripcion','citas.curp_paciente','citas.fecha_cita','citas.hora_cita','citas.asistencia','citas.status','citas.agendada_por','citas.color','citas.estado','paciente.nombres','paciente.apaterno','paciente.amaterno')->join('paciente','curp','=','citas.curp_paciente')->get();
+    $pacientes=paciente::select('nombres','apaterno','amaterno','curp')->get();
+        return view('cita',compact(['citas']),compact(['pacientes']));
+    }
+    else{
+        $cita = Cita::find($request->input('inputIdCitaAct'));
+        $cita->descripcion = $request->input('inputDescripcionAct');
+        $cita->curp_paciente = $request->input('inputCurpPacienteAct');
+        $cita->fecha_cita = $request->input('inputFechaCitaAct');
+        $cita->hora_cita = $request->input('inputHoraCitaAct');
+        $cita->color = $request->input('inputColorAct');
+        $cita->agendada_por = $request->input('inputIdUsuario');
+        $cita->save();
+    
+        $citas=cita::select('citas.id','citas.descripcion','citas.curp_paciente','citas.fecha_cita','citas.hora_cita','citas.asistencia','citas.status','citas.agendada_por','citas.color','citas.estado','paciente.nombres','paciente.apaterno','paciente.amaterno')->join('paciente','curp','=','citas.curp_paciente')->get();
+        $pacientes=paciente::select('nombres','apaterno','amaterno','curp')->get();
+        return view('cita',compact(['citas']),compact(['pacientes']));}
+    }
 }
