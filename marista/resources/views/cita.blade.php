@@ -209,6 +209,7 @@
                     function AgregaCita(){
                         var token = "{{csrf_token()}}";
                         var nombreComp = $( "#inputCurpPaciente option:selected" ).text();
+                        var id = $('#inputIdCitaAct').val();
                         $.ajax({
                             type:"post",
                             url:"{{route('registrarCita')}}",
@@ -227,6 +228,7 @@
                                     start:$("#inputFechaCita").val()+" "+$("#inputHoraCita").val(),
                                     end:$("#inputFechaCita").val()+" "+$("#inputHoraCita").val(),
                                     color:$("#inputColor").val(),
+                                    curp:$("#inputCurpPaciente").val()
                                 });
                                 $("#modalNuevaCita").css("display","none");
                             }
