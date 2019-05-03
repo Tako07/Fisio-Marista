@@ -84,7 +84,15 @@ Route::get('/altaPaciente/{pacietne}/{diagnostico}','HistoriaClinicaController@a
 ->name('altaPaciente')
 ->where(['paciente'=>'[0-9]+','diagnostico'=>'[0-9]+']);
 
+
 Route::post('/pacientes','PacientesController@registrarPaciente')->name('registrarPaciente');
+
+Route::post('anteceedentes1','PacientesController@registroAntecedentesFamiliares')->name('ant_fam_registro');
+Route::post('anteceedentes2','PacientesController@registroAntecedentesPersonales')->name('ant_pers_registro');
+//Route::get('/auxiliar',function (){
+  //$curp=0;
+  //return view ('antecedentes_familiares',compact('curp'));
+//});
 
 Route::post('/registroUsuario','DatosPersonalesController@registrarUsuario')->name('registrarUsuario');
 
@@ -100,4 +108,3 @@ Route::get('/cita', function () {
 Route::post('/calendario','CitaController@registrarCita')->name('registrarCita');
 
 Route::post('/calendario/{id}','CitaController@bajaCita')->name('bajaCita');
-

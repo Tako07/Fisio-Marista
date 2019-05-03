@@ -18,6 +18,7 @@
       Padecimiento actual
     </div>
   </div>
+
 </div>
 
 <div class="row justify-content-sm-center">
@@ -32,7 +33,7 @@
       @foreach($padecimiento_actual as $padecimiento => $eva)
       <tr class="grayMarista">
         <td>{{$padecimiento}}</td>
-        <td>{{$eva}}</td>
+        <td><input type="text" name="" value="{{$eva}}"></td>
       </tr>
       @endforeach
     </tbody>
@@ -59,7 +60,7 @@
     @foreach($sintomas as $sintoma => $respuesta)
     <tr class="grayMarista">
       <td>{{$sintoma}}</td>
-      <td>{{$respuesta}}</td>
+      <td><input type="text" name="" value="{{$respuesta}}"></td>
 
     </tr>
     @endforeach
@@ -89,7 +90,7 @@
     <tr class="grayMarista">
       <td>{{$aparato}}</td>
       @foreach($respuesta as $dato)
-      <td>{{$dato}}</td>
+      <td><input type="text" name="" value="">{{$dato}}</td>
       @endforeach
     </tr>
     @endforeach

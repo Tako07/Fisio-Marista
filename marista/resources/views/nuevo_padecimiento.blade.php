@@ -370,6 +370,14 @@
       <textarea id="inquietudes" class="materialize-textarea "name='inquietud'></textarea>
       <label for="inquietudes">Inquietud subyacente</label>
     </div>
+    <div class="row">
+    |
+    </div>
+    <div class="input-field">
+      <i class="material-icons prefix">mode_edit</i>
+      <textarea id="dermatomas" class="materialize-textarea "name='dermatomas'></textarea>
+      <label for="dermatomas">Dermatomas, miotomas y pares craneales</label>
+    </div>
     <div class="row yellowMarista">
     Exploración Física
     </div>
@@ -535,6 +543,11 @@
       <i class="material-icons prefix">mode_edit</i>
       <textarea id="hombros" class="materialize-textarea "name='hombros'></textarea>
       <label for="hombros">hombros</label>
+    </div>
+    <div class="input-field">
+      <i class="material-icons prefix">mode_edit</i>
+      <textarea id="codo" class="materialize-textarea "name='codo'></textarea>
+      <label for="codo">Codo</label>
     </div>
     <div class="input-field">
       <i class="material-icons prefix">mode_edit</i>

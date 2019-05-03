@@ -15,9 +15,9 @@ class CreateHistoriaClinicaTable extends Migration
     {
         Schema::create('historia_clinica', function (Blueprint $table) {
             $table->increments('id_historia');
-            $table->text('ant_heredo_fam');
-            $table->text('ant_pers_no_pat');
-            $table->text('ant_pers_pat');
+            $table->text('ant_heredo_fam')->nullable();
+            $table->text('ant_pers_no_pat')->nullable();
+            $table->text('ant_pers_pat')->nullable();
             $table->text('ant_gineco_obs')->nullable();
             $table->integer('id_paciente')->unsigned();
             $table->timestamps();

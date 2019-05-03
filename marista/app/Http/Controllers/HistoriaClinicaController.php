@@ -64,4 +64,8 @@ class HistoriaClinicaController extends Controller
     $diagnosticos=diagnostico::select('id_diagnostico','diagnostico','pronostico','activo')->where('id_paciente',$paciente)->get();
     return view('diagnosticos',compact(['paciente','diagnosticos']));
   }
+
+  public function editar($paciente,$diagnostico){
+    
+  }
 }

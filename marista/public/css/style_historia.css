@@ -29,6 +29,10 @@ input[type=text]:focus{
 .yellowMarista{
   background-color: rgba(255,183,0,0.8);
 }
+.blueMarista{
+  background-color: rgba(0,55,100, 1);
+  color: white;
+}
 
 #table{
   margin: auto;

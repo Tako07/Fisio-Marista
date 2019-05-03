@@ -17,89 +17,89 @@ class historiaClinicaSeeder extends Seeder
         $historia->ant_heredo_fam=
         '{
         	"Enfermedades reumatológicas": {
-        		"madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+        		"condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Enfermedades del sistema nervioso": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Síndromes": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Malformaciones": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Diabetes": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Hipertención arterial sistemática": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Cancer": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Cardiopatías": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Vasculares": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Pulmonares": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Heptopatías": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Nefropatías": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Digestivos": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Endocrinopatías": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Transtornos hematológicos": {
-            "madre": "sí",
-        		"padre": "no",
-        		"hermanos": "sí"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
-        	"Displidermias": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+        	"Displidemias": {
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	},
         	"Otros": {
-            "madre": "no",
-        		"padre": "no",
-        		"hermanos": "no"
+            "condicion": "no",
+        		"familiar": "Aquí van los familiares",
+            "cual":"ninguna"
         	}
         }';
         $historia->ant_pers_no_pat=
@@ -165,10 +165,6 @@ class historiaClinicaSeeder extends Seeder
         		"cual": ""
         	},
         	"Alimentación": {
-        		"condicion": "no",
-        		"cual": ""
-        	},
-        	"Inmunizaciones": {
         		"condicion": "no",
         		"cual": ""
         	},

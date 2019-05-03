@@ -22,6 +22,7 @@
           <th class="col-1">Madre</th>
           <th class="col-1">Padre</th>
           <th class="col-1">Hermanos</th>
+          <th class="col-1">Cual</th>
         </tr>
       </thead>
       <tbody>

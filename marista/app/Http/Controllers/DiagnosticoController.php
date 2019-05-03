@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\diagnostico;
+use App\Models\alta;
 
 class DiagnosticoController extends Controller
 {
     public function nuevoDiagnostico($paciente){
+      $activo=diagnostico::where('id_paciente',$paciente)->get()->first();
+      if($activo==null){
+        return view('nuevo_padecimiento',compact('paciente'));
+      }
       $activo=diagnostico::select('activo')->where('id_paciente',$paciente)->get();
       foreach ($activo as $activo) {
         if($activo->activo!=0){
@@ -32,7 +37,6 @@ class DiagnosticoController extends Controller
                 "Sistema sensorial"=>array("condicion"=>$request->sensorial,"cual"=>$request->cual_sensorial),
                 "Sistema osteomuscular"=>array("condicion"=>$request->muscular,"cual"=>$request->cual_muscular)
       );
-
       $exploracion=array("Exploracion fisica"
         =>array("T.A."=>$request->ta,
             "F.C."=>$request->fc,
@@ -64,21 +68,53 @@ class DiagnosticoController extends Controller
             "Genitales"=>$request->genitales
         )
       );
-      $diagnostico= new diagnostico();
+      $musculoesqueletico=array("Columna"
+        =>array("Cervical" =>$request->cervical,
+          "Dorsolumbar"=>$request->dorsolumbar,
+          "Sacroiliaca"=>$request->sacroiliaca
+        ),"Miembro superior"
+        =>array("Hombros"=>$request->hombros,
+          "Codo"=>$request->codo,
+          "Muneca"=>$request->muneca,
+          "Mano"=>$request->mano
+        ),"Miembro inferior"
+        =>array("Cadera"=>$request->cadera,
+          "Rodilla"=>$request->rodilla,
+          "Tobillo"=>$request->tobillo,
+          "Pie"=>$request->pie
+        )
+      );
+      $postura=array(
+        "Anterior"=>$request->po_anterior,
+        "Lateral"=>$request->lateral,
+        "Posterior"=>$request->posterior
+      );
+      $diagnostico = new diagnostico();
       $diagnostico->id_paciente=$request->paciente;
       $diagnostico->padecimiento_actual=json_encode($padecimiento_actual);
       $diagnostico->sintomas_generales=json_encode($sintomas_generales);
       $diagnostico->aparatos_sistemas=json_encode($aparatos);
+      $diagnostico->musculoesqueletico=json_encode($musculoesqueletico);
+      $diagnostico->postura=json_encode($postura);
       $diagnostico->diagnosticos_ant=$request->ant;
       $diagnostico->estudios=$request->estudios;
       $diagnostico->tratamentos_ant=$request->tratamientos;
-      $diagnostico->inquietudes=$request->Inquietud;
+      $diagnostico->dermatomas=$request->dermatomas;
+      $diagnostico->inquietudes=$request->inquietud;
       $diagnostico->exploracion=json_encode($exploracion);
       $diagnostico->diagnostico=$request->diag;
       $diagnostico->pronostico=$request->pronostico;
       $diagnostico->activo='1';
       $diagnostico->save();
+
       $paciente=$request->paciente;
+
+      $id_diagnostico=diagnostico::select('id_diagnostico')->where('activo','1')->first();
+
+      $altas= new alta();
+      $altas->id_diagnostico=$id_diagnostico->id_diagnostico;
+      $altas->save();
+
       $diagnosticos=diagnostico::select('id_diagnostico','diagnostico','pronostico','activo')->where('id_paciente',$paciente)->get();
       return view('diagnosticos',compact(['paciente','diagnosticos']));
 
