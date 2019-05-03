@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\paciente;
 use App\Models\historia_clinica;
-use Illuminate\Http\Request;
 use DB;
 
 class PacientesController extends Controller
@@ -33,7 +32,7 @@ class PacientesController extends Controller
         $paciente->familiar_a_cargo=$request->input('familiarAct');
         $paciente->num_tel=$request->input('telefonoAct');
         $paciente->save();
-    
+
         $pacientes=Paciente::select('paciente.*')->get();
         $cont=1;
         return view('pacientes',compact(['pacientes','cont']));
