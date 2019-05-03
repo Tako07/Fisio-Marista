@@ -96,6 +96,8 @@ Route::post('anteceedentes2','PacientesController@registroAntecedentesPersonales
   //return view ('antecedentes_familiares',compact('curp'));
 //});
 
+Route::post('/pacientes/{x}','PacientesController@modificaPaciente')->name('modificaPaciente');
+
 Route::post('/registroUsuario','DatosPersonalesController@registrarUsuario')->name('registrarUsuario');
 
 

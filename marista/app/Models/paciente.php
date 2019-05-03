@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class paciente extends Model
 {
   protected $table ="paciente";
+  protected $primaryKey = 'id_paciente';
   protected $fillable = [
       'id_paciente','nombres','apaterno','amaterno',
       'edad','curp','sexo','nacionalidad','edo_civil','ocupacion',

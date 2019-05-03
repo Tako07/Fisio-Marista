@@ -5,15 +5,40 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\paciente;
 use App\Models\historia_clinica;
+use Illuminate\Http\Request;
+use DB;
 
 class PacientesController extends Controller
 {
-  public function index(){
-    $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->get();
+  public function index(Request $request){
+
+    if($request->paciente != ''){
+        $pacientes=paciente::select('paciente.*')->where('curp', 'LIKE', $request->paciente.'%')->orWhereRaw('CONCAT(nombres," ",apaterno,amaterno) LIKE ?', '%'.$request->paciente.'%')->get();
+    }
+    else
+        $pacientes=paciente::select('paciente.*')->get();
     $cont=1;
     $curp=0;
     return view('pacientes',compact(['pacientes','cont','curp']));
   }
+
+  public function modificaPaciente(Request $request, $x){
+
+        $paciente = Paciente::find($request->input('inputIdPacienteAct'));
+        $paciente->calle=$request->input('calleAct');
+        $paciente->colonia=$request->input('coloniaAct');
+        $paciente->codigo_postal=$request->input('cpAct');
+        $paciente->num_cel=$request->input('celularAct');
+        $paciente->religion=$request->input('religionAct');
+        $paciente->familiar_a_cargo=$request->input('familiarAct');
+        $paciente->num_tel=$request->input('telefonoAct');
+        $paciente->save();
+    
+        $pacientes=Paciente::select('paciente.*')->get();
+        $cont=1;
+        return view('pacientes',compact(['pacientes','cont']));
+    }
+
   public function registrarPaciente(Request $request){
 
     $paciente= new paciente();
