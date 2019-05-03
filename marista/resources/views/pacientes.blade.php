@@ -89,7 +89,7 @@
                   " title="EDITAR PACIENTE" style="background-color: rgba(255,183,0,0.8);">
                   <i class="large material-icons">edit</i>
                 </button>
-                <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
+                <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href='{{route('showHistoriaPaciente',['paciente'=>$paciente->id_paciente])}}'" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
                   <i class="large material-icons">remove_red_eye</i>
                 </button>
               </td>
@@ -122,7 +122,7 @@
                   <i class="large material-icons">edit</i>
                 </button>
                 @endif
-                <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
+                <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href='{{route('showHistoriaPaciente',['paciente'=>$paciente->id_paciente])}}'" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
                   <i class="large material-icons">remove_red_eye</i>
                 </button>
               </td>
