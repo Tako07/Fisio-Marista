@@ -28,7 +28,7 @@
   <div class="row justify-content-md-center">
       <div class="col-lg-4">
         <div class="input-field col s12">
-        <input type="text" class="form-control validate" id="paciente" name="paciente" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required" />
+        <input type="text" class="form-control validate" id="paciente" name="paciente" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required" />
         <label for="paciente">Buscar Paciente (Curp, Nombre(s), Apellidos)</label>
       </div>
       </div>
@@ -246,7 +246,7 @@
         <br>
         <div class="form-row">
           <div class="form-group col-md-12" style="text-align: center;">
-            <button id="btnSubmit" class="col-md-auto btn btn-lg" type="button" style="background-color: rgba(255,183,0,0.8);color: #fff;line-height: 50%;" onclick="document.getElementById('modalNuevoPaciente').style.display = 'none';">Cancelar</button>
+            <button id="btnSubmit" class="col-md-auto btn btn-lg" type="button" style="background-color: rgba(255,183,0,0.8);color: #fff;line-height: 50%;" onclick="document.getElementById('modalNuevoPaciente').style.display = 'none';document.getElementById('paciente').focus();">Cancelar</button>
             <button id="btnSubmit" class="col-md-auto btn btn-lg" type="submit" style="background-color:rgba(71,72,104, 1);color: #fff;line-height: 50%;">Guardar</button>
           </div>
         </div>
@@ -261,6 +261,9 @@
 
 @if($numPac == 0)
       <h5>SIN RESULTADOS DE BUSQUEDA</h5>
+      <script>
+        document.getElementById("paciente").focus();
+      </script>
     @endif
 @endsection
 @section('more_script')
@@ -288,5 +291,6 @@
   $("#formulario").submit(function(event){
     swal('¡REGISTRO EXITOSO!', '', 'success');
   });
+  document.getElementById('paciente').focus();
 </script>
 @endsection

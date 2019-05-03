@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\paciente;
 use Illuminate\Http\Request;
+use DB;
 
 class PacientesController extends Controller
 {
   public function index(Request $request){
 
-    if($request->paciente != '')
-        $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->where('curp', 'LIKE', $request->paciente.'%')->get();
+    if($request->paciente != ''){
+        $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->where('curp', 'LIKE', $request->paciente.'%')->orWhereRaw('CONCAT(nombres," ",apaterno,amaterno) LIKE ?', '%'.$request->paciente.'%')->get();
+    }
     else
         $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->get();
     $cont=1;
