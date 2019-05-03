@@ -7,6 +7,7 @@ use App\Models\paciente;
 use App\Models\historia_clinica;
 use App\Models\diagnostico;
 use App\Models\alta;
+use App\Models\mapa;
 
 class HistoriaClinicaController extends Controller
 {
@@ -36,8 +37,14 @@ class HistoriaClinicaController extends Controller
     $esqueletico=json_decode($diagnosticoActual->musculoesqueletico);
     $postura=json_decode($diagnosticoActual->postura);
     $alta=alta::get()->where('id_diagnostico',$diagnostico)->first();
+    $mapa=mapa::select('musculos')->where(['id_paciente'=>$paciente,'id_diagnostico'=>$diagnostico])->get()->first();
+    $musculos=$mapa->musculos;
+    $musculos=substr($musculos,2);
+    $musculos=substr($musculos,0,-2);
+    $arreglo_musculos=explode('","',$musculos);
 
-    return view('diagnostico_actual',compact(['padecimiento_actual','sintomas','aparatos','exploracion','esqueletico','postura','diagnosticoActual','paciente','alta','diagnostico']));
+
+    return view('diagnostico_actual',compact(['padecimiento_actual','sintomas','aparatos','exploracion','esqueletico','postura','diagnosticoActual','paciente','alta','diagnostico','arreglo_musculos']));
 
   }
   public function alta($paciente,$diagnostico){
@@ -66,6 +73,17 @@ class HistoriaClinicaController extends Controller
   }
 
   public function editar($paciente,$diagnostico){
-    
+
+  }
+  public function guardaMapa(Request $request){
+    $mapa= new mapa();
+    $mapa->id_paciente=$request->paciente;
+    $mapa->id_diagnostico=$request->diagnostico;
+    $mapa->musculos=$request->datos;
+    $mapa->save();
+    $diagnostico=$request->diagnostico;
+    $paciente=$request->paciente;
+    $diagnosticos=diagnostico::select('id_diagnostico','diagnostico','pronostico','activo')->where('id_paciente',$request->paciente)->get();
+    return view('diagnosticos',compact(['paciente','diagnosticos']));
   }
 }

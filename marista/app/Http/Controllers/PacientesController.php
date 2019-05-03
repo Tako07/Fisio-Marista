@@ -43,6 +43,7 @@ class PacientesController extends Controller
     $historia_paciente->id_paciente=$id_paciente->id_paciente;
     $historia_paciente->save();
 
+    //return view('mapaDolor');
     return view('antecedentes_familiares',compact(['pacientes','cont','curp']));
   }
 

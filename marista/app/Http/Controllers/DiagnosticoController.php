@@ -109,14 +109,14 @@ class DiagnosticoController extends Controller
 
       $paciente=$request->paciente;
 
-      $id_diagnostico=diagnostico::select('id_diagnostico')->where('activo','1')->first();
+      $id_diagnostico=diagnostico::select('id_diagnostico')->where(['activo'=>'1','id_paciente'=>$paciente])->first();
 
       $altas= new alta();
       $altas->id_diagnostico=$id_diagnostico->id_diagnostico;
       $altas->save();
 
       $diagnosticos=diagnostico::select('id_diagnostico','diagnostico','pronostico','activo')->where('id_paciente',$paciente)->get();
-      return view('diagnosticos',compact(['paciente','diagnosticos']));
+      return view('mapaDolor',compact(['paciente','id_diagnostico']));
 
 
     }
