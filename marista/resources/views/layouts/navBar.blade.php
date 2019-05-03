@@ -32,7 +32,12 @@
   </div>
 </nav>
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="{{route('showDatosPersonales')}}">Datos Personales</a></li>
+    <li>
+      @if(session('rol')==1)
+    <a href="{{route('showDatosPersonalesAdmin')}}">Datos Personales </a>
+    @else
+    <a href="{{route('showDatosPersonales')}}">Datos Personales </a>
+    @endif </li>
     <li><a href="{{route('showPacientes')}}">Pacientes</a></li>
     <li><a href="{{route('showHistoriaClinica')}}">Historia Clinica</a></li>
     <li><a href="{{route('showConsuta')}}">Consultas</a></li>
