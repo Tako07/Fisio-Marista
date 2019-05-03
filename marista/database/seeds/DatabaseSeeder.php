@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(historiaClinicaSeeder::class);
         $this->call(diagnosticosSeeder::class);
         $this->call(altasSeeder::class);
+        $this->call(mapasSeeder::class);
+        $this->call(notasSeeder::class);
     }
 }

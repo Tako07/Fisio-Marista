@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\diagnostico;
 use App\Models\alta;
+use App\Models\notas_valoracion;
 
 class DiagnosticoController extends Controller
 {
@@ -119,5 +120,16 @@ class DiagnosticoController extends Controller
       return view('mapaDolor',compact(['paciente','id_diagnostico']));
 
 
+    }
+    public function showNotasValoracion($paciente,$diagnostico){
+      $notas=notas_valoracion::where(['id_paciente'=>$paciente,'id_diagnostico'=>$diagnostico])->get();
+      return view('notas_valoracion'compact('notas'));
+    }
+    public function verNota($id_nota){
+      $nota=notas_valoracion::where('id_nota',$id_nota)->get()->first();
+      return view('verNota',compact('nota'));
+    }
+    public function nuevaNota($paciente,$diagnostico){
+      return view('nuevaNota',compact(['paciente','diagnostico']));
     }
 }

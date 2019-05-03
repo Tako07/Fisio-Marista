@@ -143,7 +143,7 @@ $(function() {
       @foreach($padecimiento_actual as $padecimiento => $eva)
       <tr class="grayMarista">
         <td>{{$padecimiento}}</td>
-        <td><input type="text" name="" value="{{$eva}}"></td>
+        <td>{{$eva}}</td>
       </tr>
       @endforeach
     </tbody>
@@ -170,7 +170,7 @@ $(function() {
     @foreach($sintomas as $sintoma => $respuesta)
     <tr class="grayMarista">
       <td>{{$sintoma}}</td>
-      <td><input type="text" name="" value="{{$respuesta}}"></td>
+      <td>{{$respuesta}}</td>
 
     </tr>
     @endforeach
@@ -200,7 +200,7 @@ $(function() {
     <tr class="grayMarista">
       <td>{{$aparato}}</td>
       @foreach($respuesta as $dato)
-      <td><input type="text" name="" value="">{{$dato}}</td>
+      <td>{{$dato}}</td>
       @endforeach
     </tr>
     @endforeach
@@ -374,7 +374,8 @@ $(function() {
 </div>
 
 <!-- Modal Trigger -->
- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+ <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Dar de alta</a>
+ <a class="waves-effect waves-light btn" href="{{route('notas_valoracion',['paciente'=>$paciente,'diagnostico'=>$diagnostico])}}">Notas de valoración</a>
 
  <!-- Modal Structure -->
  <div id="modal1" class="modal">

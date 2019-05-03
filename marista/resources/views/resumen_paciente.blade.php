@@ -19,9 +19,8 @@
       <thead>
         <tr class="yellowMarista">
           <th class="col-1">Antecedentes</th>
-          <th class="col-1">Madre</th>
-          <th class="col-1">Padre</th>
-          <th class="col-1">Hermanos</th>
+          <th class="col-1">Sí/No</th>
+          <th class="col-1">"Familiar(es)"</th>
           <th class="col-1">Cual</th>
         </tr>
       </thead>

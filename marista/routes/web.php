@@ -46,8 +46,17 @@ Route::get('/nuevaHistoria/{paciente}','DiagnosticoController@nuevoDiagnostico')
 ->name('nuevoDiagnostico')
 ->where(['paciente' => '[0-9]+']);
 
+Route::post('/pacientes/{x}','PacientesController@modificaPaciente')->name('modificaPaciente');
 
 Route::post('/calendario/{id}/{MoB}','CiitaController@modificaCita')->name('modificaCita');
+
+Route::get('/notas/{paciente}/{diagnostico}','DiagnosticoController@showNotasValoracion')
+->where(['paciente' => '[0-9]+','diagnostico'=>'[0-9]+'])
+->name('notas_valoracion');
+
+Route::get('/verNota/{id_nota}','DiagnosticoController@verNota')->name('ver_nota');
+
+Route::get('/nuevaNota/{paciente}/{diagnostico}','DiagnosticoController@nuevaNota')->name('nuevaNota');
 
 
 Route::get('/historiaClinica/ant_fam',function(){
