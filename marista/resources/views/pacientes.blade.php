@@ -41,7 +41,9 @@
           </div>
           <div class="col-md-auto">
             <br>
+            @if(session('rol') == '1' || session('rol') == '2' || session('rol') == '3' || session('rol') == '4')
             <button id="btnNuevoPaciente" class="col-md-auto btn btn-lg" type="button" style="color: #fff;line-height: 50%;">Nuevo Paciente</button>
+            @endif
           </div>
         </div>
       </form>
@@ -101,6 +103,7 @@
               <td>Calle: {{$paciente->calle}} Colonia: {{$paciente->colonia}}</td>
               <td>{{$paciente->edad}}</td>
               <td>
+                @if(session('rol') == '1' || session('rol') == '2' || session('rol') == '3' || session('rol') == '4')
                 <button id="buttonSearch" class="col-md-auto btn" type="button"
                   onclick="
                     document.getElementById('tituloModalAct').innerHTML='ACTUALIZACION DE {{$paciente->nombres}} {{$paciente->apaterno}} {{$paciente->amaterno}}';
@@ -118,6 +121,7 @@
                   " title="EDITAR PACIENTE" style="background-color: rgba(255,183,0,0.8);">
                   <i class="large material-icons">edit</i>
                 </button>
+                @endif
                 <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
                   <i class="large material-icons">remove_red_eye</i>
                 </button>
