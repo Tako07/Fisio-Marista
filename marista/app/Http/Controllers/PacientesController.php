@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 
 class PacientesController extends Controller
 {
-  public function index(){
-    $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->get();
+  public function index(Request $request){
+
+    if($request->paciente != '')
+        $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->where('curp', 'LIKE', $request->paciente.'%')->get();
+    else
+        $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->get();
     $cont=1;
     return view('pacientes',compact(['pacientes','cont']));
   }
+
   public function registrarPaciente(Request $request){
 
     $paciente= new paciente();

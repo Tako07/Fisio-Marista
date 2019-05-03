@@ -24,18 +24,28 @@
 </div>
 
 <div id="search" class="container" style="padding-top: 2%;">
+  <form method="get" action="{{route('showPacientes')}}">
   <div class="row justify-content-md-center">
-    <div class="col-lg-4">
-      <input type="text" class="search-query form-control" id="inputBuscaPaciente" placeholder="Buscar Pacientes" />
-    </div>
+      <div class="col-lg-4">
+        <div class="input-field col s12">
+        <input type="text" class="form-control validate" id="paciente" name="paciente" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required" />
+        <label for="paciente">Buscar Paciente (Curp, Nombre(s), Apellidos)</label>
+      </div>
+      </div>
+      <div class="col-md-auto">
+        <br>
+        <button id="buttonSearch" class="col-md-auto btn" type="submit" title="Buscar Paciente">
+          <i class="large material-icons">search</i>
+        </button>
+        <button id="buttonSearch" class="col-md-auto btn" type="button" title="Ver todos los pacientes" onclick="javascript:location.href='{{ route('showPacientes') }}'">
+          <i class="large material-icons">restore_page</i>
+        </button>
+      </div>
     <div class="col-md-auto">
-      <button id="buttonSearch" class="col-md-auto btn" type="button">
-        <i class="large material-icons">search</i>
-      </button>
-    </div>
-    <div class="col-md-auto">
+      <br>
       <button id="btnNuevoPaciente" class="col-md-auto btn btn-lg" type="button" style="color: #fff;line-height: 50%;">Nuevo Paciente</button>
     </div>
+    </form>
   </div>
 </div>
 
@@ -48,20 +58,28 @@
       <th scope="col">Apellidos</th>
       <th scope="col">Domicilio</th>
       <th scope="col">Edad</th>
-      <th scope="col"></th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
-  <tbody>
+    @php $numPac = 0; @endphp
     @foreach($pacientes as $paciente)
+      @php $numPac += 1; @endphp
       @if($cont==1)
-      <tr class="grayMarista">
-        <th scope="row">{{$paciente->curp}}</th>
-        <td>{{$paciente->nombres}}</td>
-        <td>{{$paciente->apaterno}} {{$paciente->amaterno}}</td>
-        <td>Calle: {{$paciente->calle}} Colonia: {{$paciente->colonia}}</td>
-        <td>{{$paciente->edad}}</td>
-        <td><a href="historiaClinica/clinica">Ver historial</a></td>
-      </tr>
+        <tr class="grayMarista">
+          <th scope="row">{{$paciente->curp}}</th>
+          <td>{{$paciente->nombres}}</td>
+          <td>{{$paciente->apaterno}} {{$paciente->amaterno}}</td>
+          <td>Calle: {{$paciente->calle}} Colonia: {{$paciente->colonia}}</td>
+          <td>{{$paciente->edad}}</td>
+          <td>
+            <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="EDITAR PACIENTE" style="background-color: rgba(255,183,0,0.8);">
+            <i class="large material-icons">edit</i>
+            </button>
+            <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
+            <i class="large material-icons">remove_red_eye</i>
+            </button>
+          </td>
+        </tr>
         @php
           $cont=2
         @endphp
@@ -72,14 +90,21 @@
         <td>{{$paciente->apaterno}} {{$paciente->amaterno}}</td>
         <td>Calle: {{$paciente->calle}} Colonia: {{$paciente->colonia}}</td>
         <td>{{$paciente->edad}}</td>
-        <td><a href="historiaClinica/clinica">Ver historial</a></td>
+        <td>
+          <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="EDITAR PACIENTE" style="background-color: rgba(255,183,0,0.8);">
+            <i class="large material-icons">edit</i>
+          </button>
+          <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
+            <i class="large material-icons">remove_red_eye</i></button>
+        </td>
       </tr>
         @php
           $cont=1
         @endphp
       @endif
     @endforeach
-
+  </table>
+</div>
 
 <!-- The Modal -->
 <div id="modalNuevoPaciente" class="modalB">
@@ -234,7 +259,9 @@
   </div>
 </div>
 
-
+@if($numPac == 0)
+      <h5>SIN RESULTADOS DE BUSQUEDA</h5>
+    @endif
 @endsection
 @section('more_script')
 <script>
@@ -250,12 +277,12 @@
   document.getElementById('inputCurp').focus();}
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {modal.style.display = "none";
-  document.getElementById('inputBuscaPaciente').focus();}
+  document.getElementById('paciente').focus();}
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == modal){
       modal.style.display = "none";
-      document.getElementById('inputBuscaPaciente').focus();
+      document.getElementById('paciente').focus();
     }
   }
   $("#formulario").submit(function(event){
