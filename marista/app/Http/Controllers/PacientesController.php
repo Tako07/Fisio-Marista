@@ -11,13 +11,30 @@ class PacientesController extends Controller
   public function index(Request $request){
 
     if($request->paciente != ''){
-        $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->where('curp', 'LIKE', $request->paciente.'%')->orWhereRaw('CONCAT(nombres," ",apaterno,amaterno) LIKE ?', '%'.$request->paciente.'%')->get();
+        $pacientes=paciente::select('paciente.*')->where('curp', 'LIKE', $request->paciente.'%')->orWhereRaw('CONCAT(nombres," ",apaterno,amaterno) LIKE ?', '%'.$request->paciente.'%')->get();
     }
     else
-        $pacientes=paciente::select('nombres','apaterno','amaterno','calle','colonia','curp','edad')->get();
+        $pacientes=paciente::select('paciente.*')->get();
     $cont=1;
     return view('pacientes',compact(['pacientes','cont']));
   }
+
+  public function modificaPaciente(Request $request, $x){
+
+        $paciente = Paciente::find($request->input('inputIdPacienteAct'));
+        $paciente->calle=$request->input('calleAct');
+        $paciente->colonia=$request->input('coloniaAct');
+        $paciente->codigo_postal=$request->input('cpAct');
+        $paciente->num_cel=$request->input('celularAct');
+        $paciente->religion=$request->input('religionAct');
+        $paciente->familiar_a_cargo=$request->input('familiarAct');
+        $paciente->num_tel=$request->input('telefonoAct');
+        $paciente->save();
+    
+        $pacientes=Paciente::select('paciente.*')->get();
+        $cont=1;
+        return view('pacientes',compact(['pacientes','cont']));
+    }
 
   public function registrarPaciente(Request $request){
 

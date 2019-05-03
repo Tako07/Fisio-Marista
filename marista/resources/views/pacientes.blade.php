@@ -72,7 +72,21 @@
           <td>Calle: {{$paciente->calle}} Colonia: {{$paciente->colonia}}</td>
           <td>{{$paciente->edad}}</td>
           <td>
-            <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="EDITAR PACIENTE" style="background-color: rgba(255,183,0,0.8);">
+            <button id="buttonSearch" class="col-md-auto btn" type="button"
+            onclick="
+                document.getElementById('tituloModalAct').innerHTML='ACTUALIZACION DE {{$paciente->nombres}} {{$paciente->apaterno}} {{$paciente->amaterno}}';
+                document.getElementById('modalActualizaPaciente').style.display = 'block';
+                document.getElementById('inputCalleNumeroAct').focus();
+                document.getElementById('inputIdPacienteAct').value = '{{$paciente->id_paciente}}';
+                document.getElementById('inputCurpAct').value = '{{$paciente->curp}}';
+                document.getElementById('inputCalleNumeroAct').value = '{{$paciente->calle}}';
+                document.getElementById('inputColoniaAct').value = '{{$paciente->colonia}}';
+                document.getElementById('inputCPAct').value = '{{$paciente->codigo_postal}}';
+                document.getElementById('inputCelularAct').value = '{{$paciente->num_cel}}';
+                document.getElementById('inputReligionAct').value = '{{$paciente->religion}}';
+                document.getElementById('inputNombreFamAct').value = '{{$paciente->familiar_a_cargo}}';
+                document.getElementById('inputCelularFamAct').value = '{{$paciente->num_tel}}';
+              " title="EDITAR PACIENTE" style="background-color: rgba(255,183,0,0.8);">
             <i class="large material-icons">edit</i>
             </button>
             <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
@@ -91,7 +105,21 @@
         <td>Calle: {{$paciente->calle}} Colonia: {{$paciente->colonia}}</td>
         <td>{{$paciente->edad}}</td>
         <td>
-          <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="EDITAR PACIENTE" style="background-color: rgba(255,183,0,0.8);">
+          <button id="buttonSearch" class="col-md-auto btn" type="button"
+          onclick="
+                document.getElementById('tituloModalAct').innerHTML='ACTUALIZACION DE {{$paciente->nombres}} {{$paciente->apaterno}} {{$paciente->amaterno}}';
+                document.getElementById('modalActualizaPaciente').style.display = 'block';
+                document.getElementById('inputCalleNumeroAct').focus();
+                document.getElementById('inputIdPacienteAct').value = '{{$paciente->id_paciente}}';
+                document.getElementById('inputCurpAct').value = '{{$paciente->curp}}';
+                document.getElementById('inputCalleNumeroAct').value = '{{$paciente->calle}}';
+                document.getElementById('inputColoniaAct').value = '{{$paciente->colonia}}';
+                document.getElementById('inputCPAct').value = '{{$paciente->codigo_postal}}';
+                document.getElementById('inputCelularAct').value = '{{$paciente->num_cel}}';
+                document.getElementById('inputReligionAct').value = '{{$paciente->religion}}';
+                document.getElementById('inputNombreFamAct').value = '{{$paciente->familiar_a_cargo}}';
+                document.getElementById('inputCelularFamAct').value = '{{$paciente->num_tel}}';
+              " title="EDITAR PACIENTE" style="background-color: rgba(255,183,0,0.8);">
             <i class="large material-icons">edit</i>
           </button>
           <button id="buttonSearch" class="col-md-auto btn" type="button" onclick="javascript:location.href=''" title="VER HISTORIAL" style="background-color: rgba(255,183,0,0.8);">
@@ -106,13 +134,13 @@
   </table>
 </div>
 
-<!-- The Modal -->
+<!-- MODAL PARA NUEVO USUARIO -->
 <div id="modalNuevoPaciente" class="modalB">
 
   <!-- Modal content -->
   <div class="modalB-content">
     <div class="modalB-header">
-      <span class="closeB" style="font-size: 3vw;">&times;</span>
+      <span class="closeB" id="span" style="font-size: 3vw;">&times;</span>
       <h2 style="font-size: 3vw;">REGISTRO DE PACIENTE</h2>
     </div>
     <div class="modalB-body">
@@ -259,6 +287,90 @@
   </div>
 </div>
 
+<!-- MODAL PARA ACTUALIZAR UN USUARIO -->
+<div id="modalActualizaPaciente" class="modalB">
+
+  <!-- CONTENIDO -->
+  <div class="modalB-content">
+    <div class="modalB-header">
+      <span class="closeB" id="spanAct" style="font-size: 3vw;">&times;</span>
+      <h3 style="font-size: 3vw;" id="tituloModalAct">ACTUALIZACION DE PACIENTE</h3>
+    </div>
+    <div class="modalB-body">
+
+      <form method="POST" action="{{ route('modificaPaciente',['x' => 1]) }}" id="formularioAct">
+        @csrf
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputCurpAct" value="1" name="curpAct" disabled class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputCurpAct">CURP:</label>
+              <input type="hidden" id="inputIdPacienteAct" name="inputIdPacienteAct">
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputCalleNumeroAct" name="calleAct" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputCalleNumeroAct">Calle y Número:</label>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="inputColoniaAct" name="coloniaAct" class="validate" value="1" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required="required">
+              <label for="inputColoniaAct">Colonia:</label>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <div class="input-field col s12">
+              <input type="text" value="1" class="form-control" id="inputCPAct" name="cpAct" class="validate" onkeypress="return justNumbers(event);" required="required">
+              <label for="inputCPAct">Código Postal:</label>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <div class="input-field col s12">
+              <input type="text" value="1" class="form-control" id="inputCelularAct" name="celularAct" class="validate" onkeypress="return justNumbers(event);" required="required">
+              <label for="inputCelularAct">Celular:</label>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <div class="input-field col s12">
+              <input type="text" value="1" class="form-control" id="inputReligionAct" name="religionAct" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+              <label for="inputReligionAct">Religión:</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <div class="input-field col s12">
+              <input type="text" value="1" class="form-control" id="inputNombreFamAct" name="familiarAct" class="validate" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+              <label for="inputNombreFamAct">Nombre de familiar a quien llamar en caso de ser necesario:</label>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <div class="input-field col s12">
+              <input type="text" value="1" class="form-control" id="inputCelularFamAct" name="telefonoAct" class="validate" onkeypress="return justNumbers(event);" required="required">
+              <label for="inputCelularFamAct">Celular del familiar:</label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="form-row">
+          <div class="form-group col-md-12" style="text-align: center;">
+            <button id="btnSubmit" class="col-md-auto btn btn-lg" type="button" style="background-color: rgba(255,183,0,0.8);color: #fff;line-height: 50%;" onclick="document.getElementById('modalActualizaPaciente').style.display = 'none';document.getElementById('paciente').focus();">Cancelar</button>
+            <button id="btnSubmit" class="col-md-auto btn btn-lg" type="submit" style="background-color:rgba(71,72,104, 1);color: #fff;line-height: 50%;">Modificar</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="modalB-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+</div>
+
 @if($numPac == 0)
       <h5>SIN RESULTADOS DE BUSQUEDA</h5>
       <script>
@@ -270,10 +382,12 @@
 <script>
   // Get the modal
   var modal = document.getElementById('modalNuevoPaciente');
+  var modalAct = document.getElementById('modalActualizaPaciente');
   // Get the button that opens the modal
   var btn = document.getElementById("btnNuevoPaciente");
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("closeB")[0];
+  var span = document.getElementById("span");
+  var spanAct = document.getElementById("spanAct");
   // When the user clicks the button, open the modal
       
   btn.onclick = function() {modal.style.display = "block";
@@ -281,15 +395,24 @@
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {modal.style.display = "none";
   document.getElementById('paciente').focus();}
+  spanAct.onclick = function() {modalAct.style.display = "none";
+  document.getElementById('paciente').focus();}
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == modal){
       modal.style.display = "none";
       document.getElementById('paciente').focus();
     }
+    if (event.target == modalAct){
+      modalAct.style.display = "none";
+      document.getElementById('paciente').focus();
+    }
   }
   $("#formulario").submit(function(event){
     swal('¡REGISTRO EXITOSO!', '', 'success');
+  });
+  $("#formularioAct").submit(function(event){
+    swal('¡ACTUALIZACION EXITOSA!', '', 'success');
   });
   document.getElementById('paciente').focus();
 </script>

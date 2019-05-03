@@ -86,6 +86,8 @@ Route::get('/altaPaciente/{pacietne}/{diagnostico}','HistoriaClinicaController@a
 
 Route::post('/pacientes','PacientesController@registrarPaciente')->name('registrarPaciente');
 
+Route::post('/pacientes/{x}','PacientesController@modificaPaciente')->name('modificaPaciente');
+
 Route::post('/registroUsuario','DatosPersonalesController@registrarUsuario')->name('registrarUsuario');
 
 
