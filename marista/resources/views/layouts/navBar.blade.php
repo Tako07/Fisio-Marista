@@ -32,7 +32,7 @@
   </div>
 </nav>
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="{{route('showDatosPersonales')}}">Datos Personales</a></li>
+    <li><a href="{{route('showDatosPersonalesAdmin')}}">Datos Personales</a></li>
     <li><a href="{{route('showPacientes')}}">Pacientes</a></li>
     <li><a href="{{route('showHistoriaClinica')}}">Historia Clinica</a></li>
     <li><a href="{{route('showConsuta')}}">Consultas</a></li>
