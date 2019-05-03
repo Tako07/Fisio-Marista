@@ -20,7 +20,7 @@
     <table id="table" class="table table-hover">
       <thead>
         <tr class="yellowMarista">
-          <th class="col-1">Fecha</th>
+          <th class="col-1">Fecha y hora</th>
           <th class="col-4">Eva</th>
           <th class="col-1">ver</th>
         </tr>
@@ -35,7 +35,7 @@
         @endforeach
       </tbody>
     </table>
-    <a href="{{route('nuevaNota',['paciente'=>$paciente])}}">Nueva nota</a>
+    <a href="{{route('nuevaNota',['paciente'=>$paciente,'diagnostico'=>$diagnostico])}}">Nueva nota</a>
 
   </div>
 

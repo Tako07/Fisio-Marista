@@ -58,6 +58,8 @@ Route::get('/verNota/{id_nota}','DiagnosticoController@verNota')->name('ver_nota
 
 Route::get('/nuevaNota/{paciente}/{diagnostico}','DiagnosticoController@nuevaNota')->name('nuevaNota');
 
+Route::post('/guardaNota','DiagnosticoController@guardaNota')->name('guardaNota');
+
 
 Route::get('/historiaClinica/ant_fam',function(){
   return view('antecedentes_familiares');

@@ -123,13 +123,26 @@ class DiagnosticoController extends Controller
     }
     public function showNotasValoracion($paciente,$diagnostico){
       $notas=notas_valoracion::where(['id_paciente'=>$paciente,'id_diagnostico'=>$diagnostico])->get();
-      return view('notas_valoracion'compact('notas'));
+      return view('notas_valoracion',compact(['notas','paciente','diagnostico']));
     }
     public function verNota($id_nota){
-      $nota=notas_valoracion::where('id_nota',$id_nota)->get()->first();
+      $nota=notas_valoracion::where('id',$id_nota)->get()->first();
       return view('verNota',compact('nota'));
     }
     public function nuevaNota($paciente,$diagnostico){
       return view('nuevaNota',compact(['paciente','diagnostico']));
+    }
+    public function guardaNota(Request $request){
+      $notas= new notas_valoracion();
+      $notas->id_paciente=$request->paciente;
+      $notas->id_diagnostico=$request->diagnostico;
+      $notas->eva=$request->eva;
+      $notas->pruebas_funcionales=$request->pru_funcional;
+      $notas->actividad_funcional=$request->act_funcional;
+      $notas->fuerza=$request->fuerza;
+      $notas->rom=$request->rom;
+      $notas->save();
+
+      return redirect()->route('notas_valoracion',['paciente'=>$request->paciente,'diagnostico'=>$request->diagnostico]);
     }
 }
