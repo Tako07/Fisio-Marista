@@ -47,6 +47,8 @@ Route::get('/nuevaHistoria/{paciente}','DiagnosticoController@nuevoDiagnostico')
 ->where(['paciente' => '[0-9]+']);
 
 
+Route::post('/calendario/{id}/{MoB}','CiitaController@modificaCita')->name('modificaCita');
+
 
 Route::get('/historiaClinica/ant_fam',function(){
   return view('antecedentes_familiares');
@@ -95,8 +97,6 @@ Route::post('anteceedentes2','PacientesController@registroAntecedentesPersonales
   //$curp=0;
   //return view ('antecedentes_familiares',compact('curp'));
 //});
-
-Route::post('/pacientes/{x}','PacientesController@modificaPaciente')->name('modificaPaciente');
 
 Route::post('/registroUsuario','DatosPersonalesController@registrarUsuario')->name('registrarUsuario');
 
