@@ -2,7 +2,34 @@
 @section('more_style')
 <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans" rel="stylesheet">
 <link href="{{{ asset('css/style_consultas.css') }}}" rel="stylesheet">
-<script src="js/scripts_consulta.js"></script>
+<script>
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+        datasets: [{
+            label: 'Enero',
+            data: [101, 62, 75, 110, 115],
+            backgroundColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)'
+            ]
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
 @endsection
 
 @section('script')
