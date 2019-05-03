@@ -1,3 +1,5 @@
+@if(session('id_usuario') != null)
+
 @extends('layouts.navBar')
 @section('title,Calendario')
 @section('principal')
@@ -290,20 +292,22 @@
                     right: 'today,prev,next'
                 },
                 dayClick:function(date,jsEvent,view){
-                    $('#inputFechaCita').val(date.format('YYYY-MM-DD'));
-                    $("#modalNuevaCita").css("display","block");
-                    @php
-                        $numCitas = 1;
-                        foreach($citas as $cita){
-                            $numCitas = $numCitas+1;
-                        }
-                    @endphp
-                    document.getElementById("inputIdCita").value = {{$numCitas}};
-                    document.getElementById("inputDescripcion").value = '';
-                    document.getElementById("inputHoraCita").value = '';
-                    $("#inputCurpPaciente").val('0');
-                    document.getElementById("inputHoraCita").focus();
-                    document.getElementById("inputDescripcion").focus();
+                    @if(session('rol') == '2' || session('rol') == '3' || session('rol') == '4')
+                        $('#inputFechaCita').val(date.format('YYYY-MM-DD'));
+                        $("#modalNuevaCita").css("display","block");
+                        @php
+                            $numCitas = 1;
+                            foreach($citas as $cita){
+                                $numCitas = $numCitas+1;
+                            }
+                        @endphp
+                        document.getElementById("inputIdCita").value = {{$numCitas}};
+                        document.getElementById("inputDescripcion").value = '';
+                        document.getElementById("inputHoraCita").value = '';
+                        $("#inputCurpPaciente").val('0');
+                        document.getElementById("inputHoraCita").focus();
+                        document.getElementById("inputDescripcion").focus();
+                    @endif
                 },
                 events:[
                     @foreach($citas as $cita){
@@ -364,3 +368,21 @@
 @endsection
 
 @endsection
+@else
+@section('title,Calendario')
+    @section('principal')
+        <link rel="stylesheet" href="{{{ asset('css/estiloInicio.css') }}}">
+        <script src="{{{ asset('css/sweetalert/dist/sweetalert.min.js') }}}"></script>
+        <div class="container">
+            <div class="form-row">
+                <div class="col-lg-12">
+                    <script>
+                        swal('¡PRIMERO INICIA SESION!', '', 'error');
+                        setTimeout("location.href='{{ route('verlogin') }}'",1000);
+                    </script>
+                </div>
+            </div>
+        </div>
+    @endsection
+@endsection
+@endif
