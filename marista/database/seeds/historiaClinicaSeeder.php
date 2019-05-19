@@ -17,212 +17,212 @@ class historiaClinicaSeeder extends Seeder
         $historia->ant_heredo_fam=
         '{
         	"Enfermedades reumatológicas": {
-        		"condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+        		"condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Enfermedades del sistema nervioso": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "no",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Síndromes": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condicián": "Sí",
+        		"familiar": "Madre",
+            "cuál":"Síndrome de Estocolmo"
         	},
         	"Malformaciones": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Diabetes": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Hipertención arterial sistemática": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
-        	"Cancer": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+        	"Cáncer": {
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Cardiopatías": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Vasculares": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Pulmonares": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Heptopatías": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Nefropatías": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Digestivos": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Endocrinopatías": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Transtornos hematológicos": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Displidemias": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	},
         	"Otros": {
-            "condicion": "no",
-        		"familiar": "Aquí van los familiares",
-            "cual":"ninguna"
+            "condición": "No",
+        		"familiar": "",
+            "cuál":"ninguna"
         	}
         }';
         $historia->ant_pers_no_pat=
         '{
         	"Tipo construcción no favorable": {
-        		"condicion": "sí",
-        		"cual": "obra negra"
+        		"condición": "sí",
+        		"cuál": "obra negra"
         	},
         	"Suelo no regular": {
-        		"condicion": "no",
-        		"cual": ""
+        		"condición": "no",
+        		"cuál": ""
         	},
         	"Escaleras que dificulten actividades de la vida diaria (avd)": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Ventilación inadecuada": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Hacinamiento": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Adaptaciones para sus avd": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Servicios de agua": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Servicio de luz": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Servicio de drenaje inadecuado": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Hábitos personales de baño": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Higiene bucal": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Defecación": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Tabaquismo": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Alcoholismo": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Toxicomanías": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Alimentación": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"trabajo-descanso": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Trabajo-Descanso": {
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Pasatiempo": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	},
         	"Deporte": {
-        		"condicion": "no",
-        		"cual": ""
+            "condición": "no",
+        		"cuál": ""
         	}
         }'
         ;
         $historia->ant_pers_pat=
         '{
-        	"enfermedades_infancia": {
-        		"condicion": "sí",
-        		"cual": "peste negra"
+        	"Enfermedades de la infancia": {
+        		"condición": "sí",
+        		"cuál": "peste negra"
         	},
-        	"quirurgicas": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Quirúrgicas": {
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"traumatismos": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Traumatismos": {
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"infiltraciones": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Infiltraciones": {
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"hospitalizaciones": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Hospitalizaciones": {
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"perdida_conocimiento": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Perdida del conocimiento": {
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"intolerancia_medicamento": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Intolerancia a medicamentos": {
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"transfuciones": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Transfuciones": {
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"medicamentos": {
-        		"condicion": "no",
-        		"cual": ""
+        	"Medicamentos": {
+            "condición": "no",
+        		"cuál": ""
         	},
-        	"ets": {
-        		"condicion": "no",
-        		"cual": ""
+        	"ETS": {
+            "condición": "no",
+        		"cuál": ""
         	}
         }'
         ;

@@ -31,9 +31,11 @@
 </div>
     <div  class="btn-group fadeIn first" role="group" aria-label="Basic example">
             <button type="button" name="tipo" class="btn btn-primary">Imprimir</button>
-            <button type="button" name="tipo" class="btn btn-primary">Descargar Base de Datos</button>
+            <a href="{{route('descargaDB')}}" type="button" name="tipo" class="btn btn-primary">Descargar Base de Datos</a>
             <button type="button" name="tipo" class="btn btn-primary">Reporte</button>
     </div>
+
+
 
 
 @endsection

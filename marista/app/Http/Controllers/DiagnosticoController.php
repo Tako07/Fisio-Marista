@@ -25,20 +25,20 @@ class DiagnosticoController extends Controller
     }
     public function guardaDiagnostico(Request $request){
 
-      $padecimiento_actual=array("inicio"=>$request->inicio,"eva inicio"=>$request->eva,"evolucion"=>"","eva evolucion"=>"","actual"=>"","eva actual"=>"");
+      $padecimiento_actual=array("Inicio"=>$request->inicio,"EVA inicio"=>$request->eva,"Evolución"=>"","EVA evolución"=>"","Actual"=>"","EVA actual"=>"");
       $sintomas_generales=array("Astenia"=>$request->astenia,"Adinamia"=>$request->andinamia,"Anorexia"=>$request->anorexia,"Fiebre"=>$request->fiebre,"Perdida de peso"=>$request->perdida_peso);
       $aparatos=array("Aparato digestivo"=>array("condicion"=>$request->digestivo,"cual"=>$request->cual_digestivo),
                 "Aparato cardiovascular"=>array("condicion"=>$request->cardiovascular,"cual"=>$request->cual_cardiovascular),
                 "Aparato respiratorio"=>array("condicion"=>$request->respiratorio,"cual"=>$request->cual_respiratorio),
                 "Aparato urinario"=>array("condicion"=>$request->urinario,"cual"=>$request->cual_urinario),
                 "Aparato genital"=>array("condicion"=>$request->genital,"cual"=>$request->cual_genital),
-                "Aparato hematologico"=>array("condicion"=>$request->hema,"cual"=>$request->cual_hema),
+                "Aparato hematológico"=>array("condicion"=>$request->hema,"cual"=>$request->cual_hema),
                 "Sistema endocrino"=>array("condicion"=>$request->endocrino,"cual"=>$request->cual_edocrino),
                 "Sistema nervioso"=>array("condicion"=>$request->nervioso,"cual"=>$request->cual_nervioso),
                 "Sistema sensorial"=>array("condicion"=>$request->sensorial,"cual"=>$request->cual_sensorial),
                 "Sistema osteomuscular"=>array("condicion"=>$request->muscular,"cual"=>$request->cual_muscular)
       );
-      $exploracion=array("Exploracion fisica"
+      $exploracion=array("Exploración física"
         =>array("T.A."=>$request->ta,
             "F.C."=>$request->fc,
             "F.R."=>$request->fr,
@@ -50,20 +50,20 @@ class DiagnosticoController extends Controller
             "Peso ideal"=>$request->p_ideal,
             "IMC"=>$request->imc
         ),"Exploracion general"
-        =>array("Exploracion de conciencia"=>$request->conciencia,
+        =>array("Exploración de conciencia"=>$request->conciencia,
             "Actitud"=>$request->action,
             "Movimientos anormales"=>$request->mov,
             "Postura"=>$request->postura,
             "Marcha"=>$request->marcha,
-            "Estado general de nutricion"=>$request->nutricion
+            "Estado general de nutrición"=>$request->nutricion
         ),"Exploracion por region"
         =>array("Piel y anexos"=>$request->piel,
             "Cabeza"=>$request->cabeza,
             "Ojos"=>$request->ojos,
-            "Oidos"=>$request->oidos,
-            "Nariz"=>$request->nariz,
+            "Oídos"=>$request->oidos,
+            "Naríz"=>$request->nariz,
             "Boca"=>$request->boca,
-            "Torax"=>$request->torax,
+            "Tórax"=>$request->torax,
             "Vasos sanguineos"=>$request->vasos,
             "Mamas"=>$request->mamas,
             "Genitales"=>$request->genitales
@@ -72,7 +72,7 @@ class DiagnosticoController extends Controller
       $musculoesqueletico=array("Columna"
         =>array("Cervical" =>$request->cervical,
           "Dorsolumbar"=>$request->dorsolumbar,
-          "Sacroiliaca"=>$request->sacroiliaca
+          "Sacroilíaca"=>$request->sacroiliaca
         ),"Miembro superior"
         =>array("Hombros"=>$request->hombros,
           "Codo"=>$request->codo,

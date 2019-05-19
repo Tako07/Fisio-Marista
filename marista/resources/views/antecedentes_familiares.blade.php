@@ -181,7 +181,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-3">Cancer</div>
+      <div class="col-3">Cáncer</div>
       <div class="col-2">
         <p>
           <label>
@@ -204,7 +204,7 @@
       </div>
     </div>
     <div class="row grayMarista">
-      <div class="col-3">Cardiopatias</div>
+      <div class="col-3">Cardiopatías</div>
       <div class="col-2">
         <p>
           <label>

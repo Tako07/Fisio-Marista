@@ -16,12 +16,12 @@ class diagnosticosSeeder extends Seeder
         $diagnostico->id_paciente='1';
         $diagnostico->padecimiento_actual='
         {
-        	"inicio": "dolor en la pierna",
-        	"eva inicio": "5",
-        	"evolucion": "va bien",
-        	"eva evolucion": "3",
-        	"actual": "ya salió",
-        	"eva actual": "0"
+        	"Inicio": "dolor en la pierna",
+        	"EVA inicio": "5",
+        	"Evolución": "va bien",
+        	"Eva evolución": "3",
+        	"Actual": "ya salió",
+        	"EVA actual": "0"
         }
         ';
 
@@ -39,44 +39,44 @@ class diagnosticosSeeder extends Seeder
         $diagnostico->aparatos_sistemas='
         {
           "Aparato digestivo": {
-            "condicion": "si",
-            "cual": "la panza"
+            "Condición": "Sí",
+            "Cual": "la panza"
           },
           "Aparato cardiovascular": {
-            "condicion": "no",
-            "cual": ""
+            "Condición": "No",
+            "Cual": ""
           },
           "Aparato respiratorio": {
-            "condicion": "no",
-            "cual": ""
+            "Condición": "No",
+            "Cual": ""
           },
-          "Aparato urinario": {
-            "condicion": "no",
-            "cual": ""
+          "Aparato úrinario": {
+            "Condición": "No",
+            "Cual": ""
           },
           "Aparato genital": {
-            "condicion": "no",
-            "cual": ""
+            "Condición": "No",
+            "Cual": ""
           },
           "Aparato hematológico": {
-            "condicion": "no",
-            "cual": ""
+            "Condición": "No",
+            "Cual": ""
           },
-          "Sistema endocrino": {
-            "condicion": "no",
-            "cual": ""
+          "Sistema endócrino": {
+            "Condición": "No",
+            "Cual": ""
           },
           "Sistema nervioso": {
-            "condicion": "no",
-            "cual": ""
+            "Condición": "No",
+            "Cual": ""
           },
           "Sistema sensorial": {
-            "condicion": "no",
-            "cual": ""
+            "Condición": "No",
+            "Cual": ""
           },
           "Sistema osteomuscular": {
-            "condicion": "no",
-            "cual": ""
+            "Condición": "No",
+            "Cual": ""
           }
         }
         ';
@@ -100,19 +100,19 @@ class diagnosticosSeeder extends Seeder
         		"Movimientos anormales": "no",
         		"Postura": "Bien",
         		"Marcha": "reversa",
-        		"Estado general de nutricion": "Bien"
+        		"Estado general de nutrición": "Bien"
         	},
         	"Exploración por región": {
-        		"Piel y anexos": "Aquí va piel y anexos",
-        		"Cabeza": "una",
+        		"Piel y anexos": "Datos",
+        		"Cabeza": "Datos",
         		"Ojos": "Dos",
-        		"Oídos": "También dos",
+        		"Oídos": "Datos",
         		"Nariz y senos P-N": "Aquí va algo",
-        		"Boca": "Una",
-        		"Tórax": "Uno",
-        		"Vasos sanguíneos": "Muchos",
-        		"Mamas": "Aquí va algo",
-        		"Genitales": "Aquí va algo"
+        		"Boca": " ",
+        		"Tórax": " ",
+        		"Vasos sanguíneos": " ",
+        		"Mamas": " ",
+        		"Genitales": " "
         	}
         }
         ';
