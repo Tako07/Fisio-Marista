@@ -1,21 +1,14 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\Models\historia_clinica;
+use Faker\Generator as Faker;
 
-class historiaClinicaSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        $historia= new historia_clinica();
-        $historia->id_paciente='1';
-        $historia->ant_heredo_fam=
-        '{
+$autoIncrement = autoIncrement();
+
+$factory->define(App\Models\historia_clinica::class, function (Faker $faker)  use ($autoIncrement) {
+  $autoIncrement->next();
+    return [
+        'id_paciente'=>$autoIncrement->current(),
+        'ant_heredo_fam'=>'{
         	"Enfermedades reumatológicas": {
         		"condición": "No",
         		"familiar": "",
@@ -101,9 +94,8 @@ class historiaClinicaSeeder extends Seeder
         		"familiar": "",
             "cuál":"ninguna"
         	}
-        }';
-        $historia->ant_pers_no_pat=
-        '{
+        }',
+        'ant_pers_no_pat'=>'{
         	"Tipo construcción no favorable": {
         		"condición": "sí",
         		"cuál": "obra negra"
@@ -180,10 +172,8 @@ class historiaClinicaSeeder extends Seeder
             "condición": "no",
         		"cuál": ""
         	}
-        }'
-        ;
-        $historia->ant_pers_pat=
-        '{
+        }',
+        'ant_pers_pat'=>'{
         	"Enfermedades de la infancia": {
         		"condición": "sí",
         		"cuál": "peste negra"
@@ -225,9 +215,12 @@ class historiaClinicaSeeder extends Seeder
         		"cuál": ""
         	}
         }'
-        ;
-        $historia->save();
+    ];
+});
 
-        factory(historia_clinica::class)->times(50)->create();
+function autoIncrement()
+{
+    for ($i = 2; $i < 53; $i++) {
+        yield $i;
     }
 }

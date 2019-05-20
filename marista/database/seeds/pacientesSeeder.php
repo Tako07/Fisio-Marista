@@ -24,5 +24,7 @@ class pacientesSeeder extends Seeder
         $paciente->ocupacion='arquitecto';
         $paciente->save();
 
+        factory(paciente::class)->times(50)->create();
+
     }
 }

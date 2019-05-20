@@ -4,31 +4,29 @@ namespace App\Exports;
 
 use App\Models\paciente;
 use App\Models\historia_clinica;
-use Maatwebsite\Excel\Concerns\FromArray;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 
-class PacientesExport implements FromCollection, WithHeadings
+class PacientesExport implements FromQuery,WithHeadings
 {
 
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
+
+    use Exportable;
+
+    public function query()
     {
-      //$pacientes=
-      return paciente::all();
-      //join('historia_clinica as h', 'paciente.id_paciente','=','h.id_paciente')->get();
-      //dd($pacientes);
-      /*$arreglo=array();
-      foreach ($pacientes as $paciente ) {
-        array_push($arreglo,json_decode($paciente->ant_heredo_fam,true));
-        array_push($arreglo,json_decode($paciente->ant_pers_no_pat,true));
-        array_push($arreglo,json_decode($paciente->ant_pers_pat,true));
-      }*/
-        //return $arreglo;
+        return paciente::query()->select('nombres','apaterno','amaterno','edad','curp','sexo',
+          'nacionalidad','edo_civil','ocupacion','estado','ciudad','calle','colonia','codigo_postal'
+          ,'created_at','updated_at');
     }
+
+
     public function headings(): array
     {
         return [
@@ -40,7 +38,14 @@ class PacientesExport implements FromCollection, WithHeadings
             'Sexo',
             'Nacionalidad',
             'Estado civil',
-            'Profeción'
+            'Profeción',
+            'Estado',
+            'Ciudad',
+            'Calle',
+            'Colonia',
+            'Código postal',
+            'Creado',
+            'Actualizado'
 
         ];
     }

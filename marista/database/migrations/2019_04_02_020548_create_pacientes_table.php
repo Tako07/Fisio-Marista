@@ -24,7 +24,7 @@ class CreatePacientesTable extends Migration
             $table->string('nacionalidad');
             $table->enum('edo_civil',['S','C'])->nullable();
             $table->string('ocupacion')->nullable();
-            $table->string('calle',30)->nullable();
+            $table->string('calle',50)->nullable();
             $table->string('colonia',50)->nullable();
             $table->string('codigo_postal',10)->nullable();
             $table->string('ciudad',30)->nullable();
@@ -35,7 +35,7 @@ class CreatePacientesTable extends Migration
             $table->string('familiar_a_cargo')->nullable();
             $table->timestamps();
 
-            
+
         });
     }
 
